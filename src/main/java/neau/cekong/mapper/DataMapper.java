@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface DataMapper {
-    @Select("select data, time from ${viewName} where product_id = #{0} and time between #{1} and #{2}")
+    @Select("select data, time from ${viewName} where product_id = #{0} and time between #{1} and #{2} ORDER BY time")
     List<Data> selByPidBwtTime(int productId, Date start, Date end, @Param("viewName") String viewName);
 
 
