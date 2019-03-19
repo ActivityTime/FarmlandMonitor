@@ -3,8 +3,9 @@ package neau.cekong.mapper;
 import neau.cekong.pojo.TbTemperature;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
-
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface TbTemperatureMapper {
     @Delete({
@@ -52,5 +53,8 @@ public interface TbTemperatureMapper {
 
     @Select("select * from tb_temperature where product_id = #{0} ORDER BY id DESC LIMIT #{1}")
     List<TbTemperature> selectTempByProductIDLimit(int productId, int limit);
+
+    @Select("select time, temperature from tb_temperature where product_id = #{0} and time between #{1} and #{2}")
+    Map<String, String> selectByPidBwtTime(int productId, Date start, Date end);
 
 }

@@ -42,7 +42,7 @@
         }, function (result) {
             if (result.status == "200") {
                 $.cookie("LOGSESSION", result.data);
-                location.href = "/";
+                location.href = "/index.html";
             } else {
                 //  location.href = "/login.html";
                 alert(result.msg);

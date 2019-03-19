@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class TbTemperature {
-    private Integer id;
+    private Long id;
 
     private Integer productId;
 
@@ -13,11 +13,11 @@ public class TbTemperature {
 
     private Double temperature;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
