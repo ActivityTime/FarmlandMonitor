@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../../assets/css/layui.css" media="all">
+	</head>
+
+	<body class="layui-layout-body">
+		<!-- div class="layui-layout layui-layout-admin" -->
+		<div class="layui-side layui-bg-black">
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree" lay-filter="test">
+					<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+					<li class="layui-nav-item layui-nav-itemed">
+						<a href="javascript:;">数据展示</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">温湿度</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">选项2</a>
+							</dd>
+							<!-- dd>
+								<a href="">跳转</a>
+							</dd -->
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其他</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">模块1</a>
+							</dd>
+							<dd>
+								<a href="">模版2</a>
+							</dd>
+
+						</dl>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px;">
+
+				<div class="layui-inline">
+					<button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal" id="data01Bt">选择时间</button>
+					<input type="text" class="layui-input-inline" id="data01" style="width: 300px;height: 40px;">
+				</div>
+				<hr class="layui-bg-green">
+				<div id="mainView" style="width: 1000px;height:600px;"></div>
+			</div>
+		</div>
+		<!--/div-->
+
+	</body>
+
+</html>
+
+<script type="text/javascript" src="../../Echarts/echarts.min.js"></script>
+<script src="../../assets/layui.js"></script>
+<script src="../../jq/jquery-2.1.4.min.js"></script>
+<script src="../../other/formatDate.js"></script>
+<script src="../../other/getQueryString.js"></script>
+<script>
+	var myChart = echarts.init(document.getElementById('mainView'));
+	option = {
+		title: {
+			text: '折线图堆叠'
+		},
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'cross'
+			}
+		},
+		legend: {
+			data: ['温度', '湿度']
+		},
+
+		dataZoom: [{
+				type: 'slider',
+				xAxisIndex: 0,
+				filterMode: 'empty',
+			},
+
+			{
+				type: 'inside',
+				xAxisIndex: 0,
+				filterMode: 'empty'
+			},
+		],
+		toolbox: {
+			show: true,
+			feature: {
+				dataZoom: {},
+				dataView: {
+					readOnly: false
+				},
+				magicType: {
+					type: ['line', 'bar']
+				},
+				restore: {},
+				saveAsImage: {}
+			}
+		},
+		//		dataset: {
+		//			// 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
+		//			// 如果不指定 dimensions，也可以通过指定 series.encode 完成映射，参见后文。
+		//			dimensions: ['温度', '湿度'],
+		//			source: []
+		//		},
+		xAxis: {
+			type: 'time',
+		},
+		yAxis: [{
+				name: '温度',
+				axisLabel: {
+					formatter: '{value} °C'
+				}
+			},
+			{
+				name: '湿度',
+				axisLabel: {
+					formatter: '{value} %RH'
+				}
+			}
+		],
+
+		series: [{
+				name: '温度',
+				type: 'line',
+				yAxisIndex: 0,
+				connectNulls: true, //连接断点
+				smooth: true,
+				data: [
+
+				]
+			},
+			{
+				name: '湿度',
+				type: 'line',
+				yAxisIndex: 1,
+				connectNulls: true,
+				smooth: true,
+				data: [
+
+				]
+			},
+		]
+	};
+	myChart.setOption(option);
+</script>
+
+<!-- 组件加载 -->
+<script>
+	layui.use('laydate', function() {
+		var laydate = layui.laydate;
+
+		//执行一个laydate实例
+		laydate.render({
+			elem: '#data01',
+			type: 'datetime',
+			range: true,
+			format: 'yyyy/MM/dd HH:mm:ss' //可任意组合
+		});
+	});
+	layui.use('element', function() {
+		var element = layui.element;
+
+		//一些事件监听
+		element.on('tab(demo)', function(data) {
+			console.log(data);
+		});
+	});
+</script>
+
+<!-- 图表数据 -->
+<script>
+	// 时间栏初始化
+	var now = new Date();
+	$("#data01").val(now.format("yyyy/MM/dd ") + "00:00:00 - " + now.format("yyyy/MM/dd hh:mm:ss"));
+
+	// 数据更新函数
+	function getData(proId, view, name) {
+		$.post("/data/getter/" + view + "/" + proId, {
+			start: $("#data01").val().split("-")[0],
+			end: $("#data01").val().split("-")[1],
+		}).success(function(result) {
+
+			var data = result.data;
+			var tdata = []; //组织格式
+			for(var i = 0; i < data.length; i++) {
+				tdata.push([data[i].time, data[i].data]);
+			}
+
+			myChart.setOption({
+				series: [{
+					name: name,
+					data: tdata
+				}, ]
+			});
+		});
+	}
+
+	// 初始化数据
+	function initData() {
+		var pid = getQueryString('productId');
+		getData(pid, 'view_humidity_data', '湿度');
+		getData(pid, 'view_temperature_data', '温度');
+	}
+	initData();
+
+	// 设置点击事件
+	$("#data01Bt").click(initData); 
+</script>
