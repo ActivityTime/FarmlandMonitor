@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * tb_weather
+ * dat_weather
  * @author 
  */
-public class TbWeather implements Serializable {
+public class DatWeather implements Serializable {
     private LocalDateTime retime;
 
     private BigDecimal TA;
@@ -252,7 +252,7 @@ public class TbWeather implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        TbWeather other = (TbWeather) that;
+        DatWeather other = (DatWeather) that;
         return (this.getRetime() == null ? other.getRetime() == null : this.getRetime().equals(other.getRetime()))
             && (this.getTA() == null ? other.getTA() == null : this.getTA().equals(other.getTA()))
             && (this.getRH() == null ? other.getRH() == null : this.getRH().equals(other.getRH()))

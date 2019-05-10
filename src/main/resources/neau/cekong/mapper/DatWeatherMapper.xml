@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="neau.cekong.mapper.TbWeatherMapper">
-  <resultMap id="BaseResultMap" type="neau.cekong.pojo.TbWeather">
-    <id column="tb_weather_retime" jdbcType="TIMESTAMP" property="retime" />
-    <result column="tb_weather_TA" jdbcType="DECIMAL" property="TA" />
-    <result column="tb_weather_RH" jdbcType="DECIMAL" property="RH" />
-    <result column="tb_weather_PPM" jdbcType="DECIMAL" property="PPM" />
-    <result column="tb_weather_WD" jdbcType="DECIMAL" property="WD" />
-    <result column="tb_weather_PRESS" jdbcType="DECIMAL" property="PRESS" />
-    <result column="tb_weather_DEPTH" jdbcType="DECIMAL" property="DEPTH" />
-    <result column="tb_weather_PAR" jdbcType="DECIMAL" property="PAR" />
-    <result column="tb_weather_RA" jdbcType="DECIMAL" property="RA" />
-    <result column="tb_weather_UV3" jdbcType="DECIMAL" property="UV3" />
-    <result column="tb_weather_NET_R" jdbcType="DECIMAL" property="NET_R" />
-    <result column="tb_weather_TS1" jdbcType="DECIMAL" property="TS1" />
-    <result column="tb_weather_TS2" jdbcType="DECIMAL" property="TS2" />
-    <result column="tb_weather_TS3" jdbcType="DECIMAL" property="TS3" />
-    <result column="tb_weather_TS4" jdbcType="DECIMAL" property="TS4" />
-    <result column="tb_weather_TS5" jdbcType="DECIMAL" property="TS5" />
-    <result column="tb_weather_MS1" jdbcType="DECIMAL" property="MS1" />
-    <result column="tb_weather_MS2" jdbcType="DECIMAL" property="MS2" />
-    <result column="tb_weather_MS3" jdbcType="DECIMAL" property="MS3" />
-    <result column="tb_weather_MS4" jdbcType="DECIMAL" property="MS4" />
-    <result column="tb_weather_MS5" jdbcType="DECIMAL" property="MS5" />
-    <result column="tb_weather_WS" jdbcType="DECIMAL" property="WS" />
-    <result column="tb_weather_RAIN" jdbcType="DECIMAL" property="RAIN" />
+<mapper namespace="neau.cekong.mapper.DatWeatherMapper">
+  <resultMap id="BaseResultMap" type="neau.cekong.pojo.DatWeather">
+    <id column="dat_weather_retime" jdbcType="TIMESTAMP" property="retime" />
+    <result column="dat_weather_TA" jdbcType="DECIMAL" property="TA" />
+    <result column="dat_weather_RH" jdbcType="DECIMAL" property="RH" />
+    <result column="dat_weather_PPM" jdbcType="DECIMAL" property="PPM" />
+    <result column="dat_weather_WD" jdbcType="DECIMAL" property="WD" />
+    <result column="dat_weather_PRESS" jdbcType="DECIMAL" property="PRESS" />
+    <result column="dat_weather_DEPTH" jdbcType="DECIMAL" property="DEPTH" />
+    <result column="dat_weather_PAR" jdbcType="DECIMAL" property="PAR" />
+    <result column="dat_weather_RA" jdbcType="DECIMAL" property="RA" />
+    <result column="dat_weather_UV3" jdbcType="DECIMAL" property="UV3" />
+    <result column="dat_weather_NET_R" jdbcType="DECIMAL" property="NET_R" />
+    <result column="dat_weather_TS1" jdbcType="DECIMAL" property="TS1" />
+    <result column="dat_weather_TS2" jdbcType="DECIMAL" property="TS2" />
+    <result column="dat_weather_TS3" jdbcType="DECIMAL" property="TS3" />
+    <result column="dat_weather_TS4" jdbcType="DECIMAL" property="TS4" />
+    <result column="dat_weather_TS5" jdbcType="DECIMAL" property="TS5" />
+    <result column="dat_weather_MS1" jdbcType="DECIMAL" property="MS1" />
+    <result column="dat_weather_MS2" jdbcType="DECIMAL" property="MS2" />
+    <result column="dat_weather_MS3" jdbcType="DECIMAL" property="MS3" />
+    <result column="dat_weather_MS4" jdbcType="DECIMAL" property="MS4" />
+    <result column="dat_weather_MS5" jdbcType="DECIMAL" property="MS5" />
+    <result column="dat_weather_WS" jdbcType="DECIMAL" property="WS" />
+    <result column="dat_weather_RAIN" jdbcType="DECIMAL" property="RAIN" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,22 +85,22 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    tb_weather.retime as tb_weather_retime, tb_weather.TA as tb_weather_TA, tb_weather.RH as tb_weather_RH, 
-    tb_weather.PPM as tb_weather_PPM, tb_weather.WD as tb_weather_WD, tb_weather.PRESS as tb_weather_PRESS, 
-    tb_weather.`DEPTH` as `tb_weather_DEPTH`, tb_weather.PAR as tb_weather_PAR, tb_weather.RA as tb_weather_RA, 
-    tb_weather.UV3 as tb_weather_UV3, tb_weather.NET_R as tb_weather_NET_R, tb_weather.TS1 as tb_weather_TS1, 
-    tb_weather.TS2 as tb_weather_TS2, tb_weather.TS3 as tb_weather_TS3, tb_weather.TS4 as tb_weather_TS4, 
-    tb_weather.TS5 as tb_weather_TS5, tb_weather.MS1 as tb_weather_MS1, tb_weather.MS2 as tb_weather_MS2, 
-    tb_weather.MS3 as tb_weather_MS3, tb_weather.MS4 as tb_weather_MS4, tb_weather.MS5 as tb_weather_MS5, 
-    tb_weather.WS as tb_weather_WS, tb_weather.RAIN as tb_weather_RAIN
+    dat_weather.retime as dat_weather_retime, dat_weather.TA as dat_weather_TA, dat_weather.RH as dat_weather_RH, 
+    dat_weather.PPM as dat_weather_PPM, dat_weather.WD as dat_weather_WD, dat_weather.PRESS as dat_weather_PRESS, 
+    dat_weather.`DEPTH` as `dat_weather_DEPTH`, dat_weather.PAR as dat_weather_PAR, dat_weather.RA as dat_weather_RA, 
+    dat_weather.UV3 as dat_weather_UV3, dat_weather.NET_R as dat_weather_NET_R, dat_weather.TS1 as dat_weather_TS1, 
+    dat_weather.TS2 as dat_weather_TS2, dat_weather.TS3 as dat_weather_TS3, dat_weather.TS4 as dat_weather_TS4, 
+    dat_weather.TS5 as dat_weather_TS5, dat_weather.MS1 as dat_weather_MS1, dat_weather.MS2 as dat_weather_MS2, 
+    dat_weather.MS3 as dat_weather_MS3, dat_weather.MS4 as dat_weather_MS4, dat_weather.MS5 as dat_weather_MS5, 
+    dat_weather.WS as dat_weather_WS, dat_weather.RAIN as dat_weather_RAIN
   </sql>
-  <select id="selectByExample" parameterType="neau.cekong.pojo.TbWeatherExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="neau.cekong.pojo.DatWeatherExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_weather tb_weather
+    from dat_weather dat_weather
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -122,21 +122,21 @@
   <select id="selectByPrimaryKey" parameterType="java.time.LocalDateTime" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tb_weather tb_weather
-    where tb_weather.retime = #{retime,jdbcType=TIMESTAMP}
+    from dat_weather dat_weather
+    where dat_weather.retime = #{retime,jdbcType=TIMESTAMP}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.time.LocalDateTime">
-    delete from tb_weather
+    delete from dat_weather
     where retime = #{retime,jdbcType=TIMESTAMP}
   </delete>
-  <delete id="deleteByExample" parameterType="neau.cekong.pojo.TbWeatherExample">
-    delete from tb_weather tb_weather
+  <delete id="deleteByExample" parameterType="neau.cekong.pojo.DatWeatherExample">
+    delete from dat_weather dat_weather
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.TbWeather" useGeneratedKeys="true">
-    insert into tb_weather (TA, RH, PPM, 
+  <insert id="insert" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.DatWeather" useGeneratedKeys="true">
+    insert into dat_weather (TA, RH, PPM, 
       WD, PRESS, `DEPTH`, PAR, 
       RA, UV3, NET_R, TS1, 
       TS2, TS3, TS4, TS5, 
@@ -149,8 +149,8 @@
       #{MS1,jdbcType=DECIMAL}, #{MS2,jdbcType=DECIMAL}, #{MS3,jdbcType=DECIMAL}, #{MS4,jdbcType=DECIMAL}, 
       #{MS5,jdbcType=DECIMAL}, #{WS,jdbcType=DECIMAL}, #{RAIN,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.TbWeather" useGeneratedKeys="true">
-    insert into tb_weather
+  <insert id="insertSelective" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.DatWeather" useGeneratedKeys="true">
+    insert into dat_weather
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="TA != null">
         TA,
@@ -288,83 +288,83 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="neau.cekong.pojo.TbWeatherExample" resultType="java.lang.Long">
-    select count(*) from tb_weather tb_weather
+  <select id="countByExample" parameterType="neau.cekong.pojo.DatWeatherExample" resultType="java.lang.Long">
+    select count(*) from dat_weather dat_weather
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tb_weather tb_weather
+    update dat_weather dat_weather
     <set>
       <if test="record.retime != null">
-        tb_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
+        dat_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.TA != null">
-        tb_weather.TA = #{record.TA,jdbcType=DECIMAL},
+        dat_weather.TA = #{record.TA,jdbcType=DECIMAL},
       </if>
       <if test="record.RH != null">
-        tb_weather.RH = #{record.RH,jdbcType=DECIMAL},
+        dat_weather.RH = #{record.RH,jdbcType=DECIMAL},
       </if>
       <if test="record.PPM != null">
-        tb_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
+        dat_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
       </if>
       <if test="record.WD != null">
-        tb_weather.WD = #{record.WD,jdbcType=DECIMAL},
+        dat_weather.WD = #{record.WD,jdbcType=DECIMAL},
       </if>
       <if test="record.PRESS != null">
-        tb_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
+        dat_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
       </if>
       <if test="record.DEPTH != null">
-        tb_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
+        dat_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
       </if>
       <if test="record.PAR != null">
-        tb_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
+        dat_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
       </if>
       <if test="record.RA != null">
-        tb_weather.RA = #{record.RA,jdbcType=DECIMAL},
+        dat_weather.RA = #{record.RA,jdbcType=DECIMAL},
       </if>
       <if test="record.UV3 != null">
-        tb_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
+        dat_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
       </if>
       <if test="record.NET_R != null">
-        tb_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
+        dat_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
       </if>
       <if test="record.TS1 != null">
-        tb_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
+        dat_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
       </if>
       <if test="record.TS2 != null">
-        tb_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
+        dat_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
       </if>
       <if test="record.TS3 != null">
-        tb_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
+        dat_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
       </if>
       <if test="record.TS4 != null">
-        tb_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
+        dat_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
       </if>
       <if test="record.TS5 != null">
-        tb_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
+        dat_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
       </if>
       <if test="record.MS1 != null">
-        tb_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
+        dat_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
       </if>
       <if test="record.MS2 != null">
-        tb_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
+        dat_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
       </if>
       <if test="record.MS3 != null">
-        tb_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
+        dat_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
       </if>
       <if test="record.MS4 != null">
-        tb_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
+        dat_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
       </if>
       <if test="record.MS5 != null">
-        tb_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
+        dat_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
       </if>
       <if test="record.WS != null">
-        tb_weather.WS = #{record.WS,jdbcType=DECIMAL},
+        dat_weather.WS = #{record.WS,jdbcType=DECIMAL},
       </if>
       <if test="record.RAIN != null">
-        tb_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL},
+        dat_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -372,36 +372,36 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tb_weather tb_weather
-    set tb_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
-      tb_weather.TA = #{record.TA,jdbcType=DECIMAL},
-      tb_weather.RH = #{record.RH,jdbcType=DECIMAL},
-      tb_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
-      tb_weather.WD = #{record.WD,jdbcType=DECIMAL},
-      tb_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
-      tb_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
-      tb_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
-      tb_weather.RA = #{record.RA,jdbcType=DECIMAL},
-      tb_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
-      tb_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
-      tb_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
-      tb_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
-      tb_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
-      tb_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
-      tb_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
-      tb_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
-      tb_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
-      tb_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
-      tb_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
-      tb_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
-      tb_weather.WS = #{record.WS,jdbcType=DECIMAL},
-      tb_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL}
+    update dat_weather dat_weather
+    set dat_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
+      dat_weather.TA = #{record.TA,jdbcType=DECIMAL},
+      dat_weather.RH = #{record.RH,jdbcType=DECIMAL},
+      dat_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
+      dat_weather.WD = #{record.WD,jdbcType=DECIMAL},
+      dat_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
+      dat_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
+      dat_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
+      dat_weather.RA = #{record.RA,jdbcType=DECIMAL},
+      dat_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
+      dat_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
+      dat_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
+      dat_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
+      dat_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
+      dat_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
+      dat_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
+      dat_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
+      dat_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
+      dat_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
+      dat_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
+      dat_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
+      dat_weather.WS = #{record.WS,jdbcType=DECIMAL},
+      dat_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="neau.cekong.pojo.TbWeather">
-    update tb_weather
+  <update id="updateByPrimaryKeySelective" parameterType="neau.cekong.pojo.DatWeather">
+    update dat_weather
     <set>
       <if test="TA != null">
         TA = #{TA,jdbcType=DECIMAL},
@@ -472,8 +472,8 @@
     </set>
     where retime = #{retime,jdbcType=TIMESTAMP}
   </update>
-  <update id="updateByPrimaryKey" parameterType="neau.cekong.pojo.TbWeather">
-    update tb_weather
+  <update id="updateByPrimaryKey" parameterType="neau.cekong.pojo.DatWeather">
+    update dat_weather
     set TA = #{TA,jdbcType=DECIMAL},
       RH = #{RH,jdbcType=DECIMAL},
       PPM = #{PPM,jdbcType=DECIMAL},
