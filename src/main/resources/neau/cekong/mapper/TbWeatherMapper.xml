@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="neau.cekong.mapper.TbWeatherMapper">
+  <resultMap id="BaseResultMap" type="neau.cekong.pojo.TbWeather">
+    <id column="tb_weather_retime" jdbcType="TIMESTAMP" property="retime" />
+    <result column="tb_weather_TA" jdbcType="DECIMAL" property="TA" />
+    <result column="tb_weather_RH" jdbcType="DECIMAL" property="RH" />
+    <result column="tb_weather_PPM" jdbcType="DECIMAL" property="PPM" />
+    <result column="tb_weather_WD" jdbcType="DECIMAL" property="WD" />
+    <result column="tb_weather_PRESS" jdbcType="DECIMAL" property="PRESS" />
+    <result column="tb_weather_DEPTH" jdbcType="DECIMAL" property="DEPTH" />
+    <result column="tb_weather_PAR" jdbcType="DECIMAL" property="PAR" />
+    <result column="tb_weather_RA" jdbcType="DECIMAL" property="RA" />
+    <result column="tb_weather_UV3" jdbcType="DECIMAL" property="UV3" />
+    <result column="tb_weather_NET_R" jdbcType="DECIMAL" property="NET_R" />
+    <result column="tb_weather_TS1" jdbcType="DECIMAL" property="TS1" />
+    <result column="tb_weather_TS2" jdbcType="DECIMAL" property="TS2" />
+    <result column="tb_weather_TS3" jdbcType="DECIMAL" property="TS3" />
+    <result column="tb_weather_TS4" jdbcType="DECIMAL" property="TS4" />
+    <result column="tb_weather_TS5" jdbcType="DECIMAL" property="TS5" />
+    <result column="tb_weather_MS1" jdbcType="DECIMAL" property="MS1" />
+    <result column="tb_weather_MS2" jdbcType="DECIMAL" property="MS2" />
+    <result column="tb_weather_MS3" jdbcType="DECIMAL" property="MS3" />
+    <result column="tb_weather_MS4" jdbcType="DECIMAL" property="MS4" />
+    <result column="tb_weather_MS5" jdbcType="DECIMAL" property="MS5" />
+    <result column="tb_weather_WS" jdbcType="DECIMAL" property="WS" />
+    <result column="tb_weather_RAIN" jdbcType="DECIMAL" property="RAIN" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tb_weather.retime as tb_weather_retime, tb_weather.TA as tb_weather_TA, tb_weather.RH as tb_weather_RH, 
+    tb_weather.PPM as tb_weather_PPM, tb_weather.WD as tb_weather_WD, tb_weather.PRESS as tb_weather_PRESS, 
+    tb_weather.`DEPTH` as `tb_weather_DEPTH`, tb_weather.PAR as tb_weather_PAR, tb_weather.RA as tb_weather_RA, 
+    tb_weather.UV3 as tb_weather_UV3, tb_weather.NET_R as tb_weather_NET_R, tb_weather.TS1 as tb_weather_TS1, 
+    tb_weather.TS2 as tb_weather_TS2, tb_weather.TS3 as tb_weather_TS3, tb_weather.TS4 as tb_weather_TS4, 
+    tb_weather.TS5 as tb_weather_TS5, tb_weather.MS1 as tb_weather_MS1, tb_weather.MS2 as tb_weather_MS2, 
+    tb_weather.MS3 as tb_weather_MS3, tb_weather.MS4 as tb_weather_MS4, tb_weather.MS5 as tb_weather_MS5, 
+    tb_weather.WS as tb_weather_WS, tb_weather.RAIN as tb_weather_RAIN
+  </sql>
+  <select id="selectByExample" parameterType="neau.cekong.pojo.TbWeatherExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_weather tb_weather
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.time.LocalDateTime" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_weather tb_weather
+    where tb_weather.retime = #{retime,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.time.LocalDateTime">
+    delete from tb_weather
+    where retime = #{retime,jdbcType=TIMESTAMP}
+  </delete>
+  <delete id="deleteByExample" parameterType="neau.cekong.pojo.TbWeatherExample">
+    delete from tb_weather tb_weather
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.TbWeather" useGeneratedKeys="true">
+    insert into tb_weather (TA, RH, PPM, 
+      WD, PRESS, `DEPTH`, PAR, 
+      RA, UV3, NET_R, TS1, 
+      TS2, TS3, TS4, TS5, 
+      MS1, MS2, MS3, MS4, 
+      MS5, WS, RAIN)
+    values (#{TA,jdbcType=DECIMAL}, #{RH,jdbcType=DECIMAL}, #{PPM,jdbcType=DECIMAL}, 
+      #{WD,jdbcType=DECIMAL}, #{PRESS,jdbcType=DECIMAL}, #{DEPTH,jdbcType=DECIMAL}, #{PAR,jdbcType=DECIMAL}, 
+      #{RA,jdbcType=DECIMAL}, #{UV3,jdbcType=DECIMAL}, #{NET_R,jdbcType=DECIMAL}, #{TS1,jdbcType=DECIMAL}, 
+      #{TS2,jdbcType=DECIMAL}, #{TS3,jdbcType=DECIMAL}, #{TS4,jdbcType=DECIMAL}, #{TS5,jdbcType=DECIMAL}, 
+      #{MS1,jdbcType=DECIMAL}, #{MS2,jdbcType=DECIMAL}, #{MS3,jdbcType=DECIMAL}, #{MS4,jdbcType=DECIMAL}, 
+      #{MS5,jdbcType=DECIMAL}, #{WS,jdbcType=DECIMAL}, #{RAIN,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="retime" keyProperty="retime" parameterType="neau.cekong.pojo.TbWeather" useGeneratedKeys="true">
+    insert into tb_weather
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TA != null">
+        TA,
+      </if>
+      <if test="RH != null">
+        RH,
+      </if>
+      <if test="PPM != null">
+        PPM,
+      </if>
+      <if test="WD != null">
+        WD,
+      </if>
+      <if test="PRESS != null">
+        PRESS,
+      </if>
+      <if test="DEPTH != null">
+        `DEPTH`,
+      </if>
+      <if test="PAR != null">
+        PAR,
+      </if>
+      <if test="RA != null">
+        RA,
+      </if>
+      <if test="UV3 != null">
+        UV3,
+      </if>
+      <if test="NET_R != null">
+        NET_R,
+      </if>
+      <if test="TS1 != null">
+        TS1,
+      </if>
+      <if test="TS2 != null">
+        TS2,
+      </if>
+      <if test="TS3 != null">
+        TS3,
+      </if>
+      <if test="TS4 != null">
+        TS4,
+      </if>
+      <if test="TS5 != null">
+        TS5,
+      </if>
+      <if test="MS1 != null">
+        MS1,
+      </if>
+      <if test="MS2 != null">
+        MS2,
+      </if>
+      <if test="MS3 != null">
+        MS3,
+      </if>
+      <if test="MS4 != null">
+        MS4,
+      </if>
+      <if test="MS5 != null">
+        MS5,
+      </if>
+      <if test="WS != null">
+        WS,
+      </if>
+      <if test="RAIN != null">
+        RAIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TA != null">
+        #{TA,jdbcType=DECIMAL},
+      </if>
+      <if test="RH != null">
+        #{RH,jdbcType=DECIMAL},
+      </if>
+      <if test="PPM != null">
+        #{PPM,jdbcType=DECIMAL},
+      </if>
+      <if test="WD != null">
+        #{WD,jdbcType=DECIMAL},
+      </if>
+      <if test="PRESS != null">
+        #{PRESS,jdbcType=DECIMAL},
+      </if>
+      <if test="DEPTH != null">
+        #{DEPTH,jdbcType=DECIMAL},
+      </if>
+      <if test="PAR != null">
+        #{PAR,jdbcType=DECIMAL},
+      </if>
+      <if test="RA != null">
+        #{RA,jdbcType=DECIMAL},
+      </if>
+      <if test="UV3 != null">
+        #{UV3,jdbcType=DECIMAL},
+      </if>
+      <if test="NET_R != null">
+        #{NET_R,jdbcType=DECIMAL},
+      </if>
+      <if test="TS1 != null">
+        #{TS1,jdbcType=DECIMAL},
+      </if>
+      <if test="TS2 != null">
+        #{TS2,jdbcType=DECIMAL},
+      </if>
+      <if test="TS3 != null">
+        #{TS3,jdbcType=DECIMAL},
+      </if>
+      <if test="TS4 != null">
+        #{TS4,jdbcType=DECIMAL},
+      </if>
+      <if test="TS5 != null">
+        #{TS5,jdbcType=DECIMAL},
+      </if>
+      <if test="MS1 != null">
+        #{MS1,jdbcType=DECIMAL},
+      </if>
+      <if test="MS2 != null">
+        #{MS2,jdbcType=DECIMAL},
+      </if>
+      <if test="MS3 != null">
+        #{MS3,jdbcType=DECIMAL},
+      </if>
+      <if test="MS4 != null">
+        #{MS4,jdbcType=DECIMAL},
+      </if>
+      <if test="MS5 != null">
+        #{MS5,jdbcType=DECIMAL},
+      </if>
+      <if test="WS != null">
+        #{WS,jdbcType=DECIMAL},
+      </if>
+      <if test="RAIN != null">
+        #{RAIN,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="neau.cekong.pojo.TbWeatherExample" resultType="java.lang.Long">
+    select count(*) from tb_weather tb_weather
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_weather tb_weather
+    <set>
+      <if test="record.retime != null">
+        tb_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.TA != null">
+        tb_weather.TA = #{record.TA,jdbcType=DECIMAL},
+      </if>
+      <if test="record.RH != null">
+        tb_weather.RH = #{record.RH,jdbcType=DECIMAL},
+      </if>
+      <if test="record.PPM != null">
+        tb_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
+      </if>
+      <if test="record.WD != null">
+        tb_weather.WD = #{record.WD,jdbcType=DECIMAL},
+      </if>
+      <if test="record.PRESS != null">
+        tb_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
+      </if>
+      <if test="record.DEPTH != null">
+        tb_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
+      </if>
+      <if test="record.PAR != null">
+        tb_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
+      </if>
+      <if test="record.RA != null">
+        tb_weather.RA = #{record.RA,jdbcType=DECIMAL},
+      </if>
+      <if test="record.UV3 != null">
+        tb_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
+      </if>
+      <if test="record.NET_R != null">
+        tb_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TS1 != null">
+        tb_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TS2 != null">
+        tb_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TS3 != null">
+        tb_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TS4 != null">
+        tb_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TS5 != null">
+        tb_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
+      </if>
+      <if test="record.MS1 != null">
+        tb_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.MS2 != null">
+        tb_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.MS3 != null">
+        tb_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
+      </if>
+      <if test="record.MS4 != null">
+        tb_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
+      </if>
+      <if test="record.MS5 != null">
+        tb_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
+      </if>
+      <if test="record.WS != null">
+        tb_weather.WS = #{record.WS,jdbcType=DECIMAL},
+      </if>
+      <if test="record.RAIN != null">
+        tb_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_weather tb_weather
+    set tb_weather.retime = #{record.retime,jdbcType=TIMESTAMP},
+      tb_weather.TA = #{record.TA,jdbcType=DECIMAL},
+      tb_weather.RH = #{record.RH,jdbcType=DECIMAL},
+      tb_weather.PPM = #{record.PPM,jdbcType=DECIMAL},
+      tb_weather.WD = #{record.WD,jdbcType=DECIMAL},
+      tb_weather.PRESS = #{record.PRESS,jdbcType=DECIMAL},
+      tb_weather.`DEPTH` = #{record.DEPTH,jdbcType=DECIMAL},
+      tb_weather.PAR = #{record.PAR,jdbcType=DECIMAL},
+      tb_weather.RA = #{record.RA,jdbcType=DECIMAL},
+      tb_weather.UV3 = #{record.UV3,jdbcType=DECIMAL},
+      tb_weather.NET_R = #{record.NET_R,jdbcType=DECIMAL},
+      tb_weather.TS1 = #{record.TS1,jdbcType=DECIMAL},
+      tb_weather.TS2 = #{record.TS2,jdbcType=DECIMAL},
+      tb_weather.TS3 = #{record.TS3,jdbcType=DECIMAL},
+      tb_weather.TS4 = #{record.TS4,jdbcType=DECIMAL},
+      tb_weather.TS5 = #{record.TS5,jdbcType=DECIMAL},
+      tb_weather.MS1 = #{record.MS1,jdbcType=DECIMAL},
+      tb_weather.MS2 = #{record.MS2,jdbcType=DECIMAL},
+      tb_weather.MS3 = #{record.MS3,jdbcType=DECIMAL},
+      tb_weather.MS4 = #{record.MS4,jdbcType=DECIMAL},
+      tb_weather.MS5 = #{record.MS5,jdbcType=DECIMAL},
+      tb_weather.WS = #{record.WS,jdbcType=DECIMAL},
+      tb_weather.RAIN = #{record.RAIN,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="neau.cekong.pojo.TbWeather">
+    update tb_weather
+    <set>
+      <if test="TA != null">
+        TA = #{TA,jdbcType=DECIMAL},
+      </if>
+      <if test="RH != null">
+        RH = #{RH,jdbcType=DECIMAL},
+      </if>
+      <if test="PPM != null">
+        PPM = #{PPM,jdbcType=DECIMAL},
+      </if>
+      <if test="WD != null">
+        WD = #{WD,jdbcType=DECIMAL},
+      </if>
+      <if test="PRESS != null">
+        PRESS = #{PRESS,jdbcType=DECIMAL},
+      </if>
+      <if test="DEPTH != null">
+        `DEPTH` = #{DEPTH,jdbcType=DECIMAL},
+      </if>
+      <if test="PAR != null">
+        PAR = #{PAR,jdbcType=DECIMAL},
+      </if>
+      <if test="RA != null">
+        RA = #{RA,jdbcType=DECIMAL},
+      </if>
+      <if test="UV3 != null">
+        UV3 = #{UV3,jdbcType=DECIMAL},
+      </if>
+      <if test="NET_R != null">
+        NET_R = #{NET_R,jdbcType=DECIMAL},
+      </if>
+      <if test="TS1 != null">
+        TS1 = #{TS1,jdbcType=DECIMAL},
+      </if>
+      <if test="TS2 != null">
+        TS2 = #{TS2,jdbcType=DECIMAL},
+      </if>
+      <if test="TS3 != null">
+        TS3 = #{TS3,jdbcType=DECIMAL},
+      </if>
+      <if test="TS4 != null">
+        TS4 = #{TS4,jdbcType=DECIMAL},
+      </if>
+      <if test="TS5 != null">
+        TS5 = #{TS5,jdbcType=DECIMAL},
+      </if>
+      <if test="MS1 != null">
+        MS1 = #{MS1,jdbcType=DECIMAL},
+      </if>
+      <if test="MS2 != null">
+        MS2 = #{MS2,jdbcType=DECIMAL},
+      </if>
+      <if test="MS3 != null">
+        MS3 = #{MS3,jdbcType=DECIMAL},
+      </if>
+      <if test="MS4 != null">
+        MS4 = #{MS4,jdbcType=DECIMAL},
+      </if>
+      <if test="MS5 != null">
+        MS5 = #{MS5,jdbcType=DECIMAL},
+      </if>
+      <if test="WS != null">
+        WS = #{WS,jdbcType=DECIMAL},
+      </if>
+      <if test="RAIN != null">
+        RAIN = #{RAIN,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where retime = #{retime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="neau.cekong.pojo.TbWeather">
+    update tb_weather
+    set TA = #{TA,jdbcType=DECIMAL},
+      RH = #{RH,jdbcType=DECIMAL},
+      PPM = #{PPM,jdbcType=DECIMAL},
+      WD = #{WD,jdbcType=DECIMAL},
+      PRESS = #{PRESS,jdbcType=DECIMAL},
+      `DEPTH` = #{DEPTH,jdbcType=DECIMAL},
+      PAR = #{PAR,jdbcType=DECIMAL},
+      RA = #{RA,jdbcType=DECIMAL},
+      UV3 = #{UV3,jdbcType=DECIMAL},
+      NET_R = #{NET_R,jdbcType=DECIMAL},
+      TS1 = #{TS1,jdbcType=DECIMAL},
+      TS2 = #{TS2,jdbcType=DECIMAL},
+      TS3 = #{TS3,jdbcType=DECIMAL},
+      TS4 = #{TS4,jdbcType=DECIMAL},
+      TS5 = #{TS5,jdbcType=DECIMAL},
+      MS1 = #{MS1,jdbcType=DECIMAL},
+      MS2 = #{MS2,jdbcType=DECIMAL},
+      MS3 = #{MS3,jdbcType=DECIMAL},
+      MS4 = #{MS4,jdbcType=DECIMAL},
+      MS5 = #{MS5,jdbcType=DECIMAL},
+      WS = #{WS,jdbcType=DECIMAL},
+      RAIN = #{RAIN,jdbcType=DECIMAL}
+    where retime = #{retime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>
