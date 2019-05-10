@@ -7,57 +7,19 @@
 		<link rel="stylesheet" href="../../assets/css/layui.css" media="all">
 	</head>
 
-	<body class="layui-layout-body">
-		<!-- div class="layui-layout layui-layout-admin" -->
-		<div class="layui-side layui-bg-black">
-			<div class="layui-side-scroll">
-				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-				<ul class="layui-nav layui-nav-tree" lay-filter="test">
-					<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-					<li class="layui-nav-item layui-nav-itemed">
-						<a href="javascript:;">数据展示</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="javascript:;">温湿度</a>
-							</dd>
-							<dd>
-								<a href="javascript:;">选项2</a>
-							</dd>
-							<!-- dd>
-								<a href="">跳转</a>
-							</dd -->
-						</dl>
-					</li>
-					<li class="layui-nav-item">
-						<a href="javascript:;">其他</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="">模块1</a>
-							</dd>
-							<dd>
-								<a href="">模版2</a>
-							</dd>
-
-						</dl>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="layui-body">
-			<!-- 内容主体区域 -->
-			<div style="padding: 15px;">
-
-				<div class="layui-inline">
+	<body>
+		<div class="layui-fluid">
+			<div class="layui-row">
+				<div class="layui-inline layui-col-md12">
 					<button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal" id="data01Bt">选择时间</button>
 					<input type="text" class="layui-input-inline" id="data01" style="width: 300px;height: 40px;">
 				</div>
 				<hr class="layui-bg-green">
-				<div id="mainView" style="width: 1000px;height:600px;"></div>
+				<div class="layui-col-md12">
+					<div id="mainView" style="width: 1000px; height:550px;"></div>
+				</div>
 			</div>
 		</div>
-		<!--/div-->
-
 	</body>
 
 </html>
@@ -86,14 +48,23 @@
 		dataZoom: [{
 				type: 'slider',
 				xAxisIndex: 0,
-				filterMode: 'empty',
+				filterMode: 'empty'
 			},
-
+			{
+				type: 'slider',
+				yAxisIndex: [0, 1],
+				filterMode: 'empty'
+			},
 			{
 				type: 'inside',
 				xAxisIndex: 0,
 				filterMode: 'empty'
 			},
+			//			{
+			//				type: 'inside',
+			//				yAxisIndex: [0, 1],
+			//				filterMode: 'empty'
+			//			}
 		],
 		toolbox: {
 			show: true,
@@ -117,17 +88,30 @@
 		//		},
 		xAxis: {
 			type: 'time',
+
 		},
 		yAxis: [{
 				name: '温度',
 				axisLabel: {
 					formatter: '{value} °C'
+				},
+				max: function(value) {
+					return(value.max + (value.max - value.min) / 3).toFixed(2);
+				},
+				min: function(value) {
+					return(value.min - (value.max - value.min) / 3).toFixed(2);
 				}
 			},
 			{
 				name: '湿度',
 				axisLabel: {
 					formatter: '{value} %RH'
+				},
+				max: function(value) {
+					return(value.max + (value.max - value.min) / 3).toFixed(2);
+				},
+				min: function(value) {
+					return(value.min - (value.max - value.min) / 3).toFixed(2);
 				}
 			}
 		],
@@ -138,6 +122,7 @@
 				yAxisIndex: 0,
 				connectNulls: true, //连接断点
 				smooth: true,
+				symbol: "none",
 				data: [
 
 				]
@@ -148,6 +133,7 @@
 				yAxisIndex: 1,
 				connectNulls: true,
 				smooth: true,
+				symbol: "none",
 				data: [
 
 				]
@@ -217,5 +203,5 @@
 	initData();
 
 	// 设置点击事件
-	$("#data01Bt").click(initData); 
+	$("#data01Bt").click(initData);
 </script>

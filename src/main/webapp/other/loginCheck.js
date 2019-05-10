@@ -11,3 +11,10 @@ $.post("/user/check", {
     alert("error");
     location.href = "/login.html";
 });
+
+function logOut() {
+    $.cookie("LOGSESSION", "cancle");
+    location.href = "/login.html";
+}
+
+$(".bt-logOut").click(logOut);
