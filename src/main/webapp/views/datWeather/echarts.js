@@ -97,9 +97,7 @@ datWeather.echarts.builder = {
             connectNulls: true, //连接断点
             smooth: true,
             symbol: "none",
-            data: [
-                ["2019-05-11 13:00:32", 36.8123], ["2019-05-11 13:15:32", 32.8456], ["2019-05-11 13:30:32", 34.8564], ["2019-05-11 13:45:32", 38.8645],
-            ]
+            data: []
         },]
     },
     /* y轴对象默认设置 unused */
@@ -124,7 +122,7 @@ datWeather.echarts.builder = {
         smooth: true,
         symbol: "none",
         data: [
-            ["2019-05-11 13:02:32", 32.8],
+            ["2019-05-11 13:00:32", 36.8123], ["2019-05-11 13:15:32", 32.8456], ["2019-05-11 13:30:32", 34.8564], ["2019-05-11 13:45:32", 38.8645],
         ]
     },
     /* 图表元素目标模版 */
@@ -152,6 +150,7 @@ datWeather.echarts.builder = {
         datWeather.echarts.list = [];
         formatJson.forEach(function (v) {
             datWeather.echarts.list[count] = newChart(v.nick, "chart" + count);
+            datWeather.echarts.list[count].showLoading();
             datWeather.echarts.list[count].setOption(datWeather.echarts.builder.option);
             count++;
         });
@@ -166,6 +165,7 @@ datWeather.echarts.builder = {
             formatJson = datWeather.echarts.config.chartsFormatJson;
         var chartList = datWeather.echarts.list;
         var count = 0;
+
         formatJson.forEach(function (c) {
             chartList[count].setOption({
                 legend: {
@@ -192,7 +192,7 @@ datWeather.echarts.builder = {
                             symbol: "none",
                         });
                     });
-                    console.log(series);
+                    // console.log(series);
                     return series;
                 }(),
                 yAxis: [{
@@ -204,9 +204,63 @@ datWeather.echarts.builder = {
             });
             count++;
         });
+
+        datWeather.echarts.builder.hideLoading(400);
+    },
+    /* 加载动画 */
+    showLoading:function(){
+        datWeather.echarts.list.forEach(function (c) {
+            c.showLoading();
+        });
+    },
+    hideLoading:function(timeout){
+        setTimeout(function () {
+            datWeather.echarts.list.forEach(function (c) {
+                c.hideLoading();
+            });
+        }, timeout);
+    },
+    /* 日期选择事件注册 */
+    setDateCheck: function () {
+        /* 加载日期组件 */
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: $('.date-check-start').get(0),
+                type: 'datetime',
+                range: false,
+                format: 'yyyy-MM-dd HH:mm:ss' //可任意组合
+            });
+            laydate.render({
+                elem: $('.date-check-end').get(0),
+                type: 'datetime',
+                range: false,
+                format: 'yyyy-MM-dd HH:mm:ss' //可任意组合
+            });
+
+            // 添加提换所有函数
+            String.prototype.replaceAll = function (AFindText, ARepText) {
+                raRegExp = new RegExp(AFindText, "g");
+                return this.replace(raRegExp, ARepText);
+            };
+        });
+        /* 设置点击事件 */
+        $(".date-check-do").click(function () {
+            datWeather.echarts.builder.showLoading();
+            var start = $(".date-check-start").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", "");
+            var end = $(".date-check-end").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", "");
+            datWeather.data.loader.btwX(start, end, datWeather.echarts.builder.reFresh);
+        });
     }
 };
 
+//加载图表列表
 datWeather.echarts.builder.loadChartList();
 
-datWeather.data.loader.topX(1000, datWeather.echarts.builder.reFresh);
+// 获取前n条数据 初始化
+datWeather.data.loader.topX(1000, datWeather.echarts.builder.reFresh, datWeather.echarts.builder.showLoading);
+
+// 注册日期选择事件
+datWeather.echarts.builder.setDateCheck();
