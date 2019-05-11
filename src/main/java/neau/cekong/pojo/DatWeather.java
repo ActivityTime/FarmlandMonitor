@@ -1,5 +1,7 @@
 package neau.cekong.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
  * @author 
  */
 public class DatWeather implements Serializable {
+
     private LocalDateTime retime;
 
     private BigDecimal TA;
@@ -57,6 +60,7 @@ public class DatWeather implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public LocalDateTime getRetime() {
         return retime;
     }
