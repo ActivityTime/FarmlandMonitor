@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/DatWeatherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/DatWeatherService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DatWeatherServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/util/LocalDateTimeUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datWeather/datWeather.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datWeather/data.Loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/datWeather/echarts.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/urlGlobalConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/welcome1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
@@ -64,7 +48,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3367">
+            <state relative-caret-position="-147">
               <caret line="90" column="85" lean-forward="true" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
             </state>
           </provider>
@@ -384,7 +368,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557577523909" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557577692614" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -529,7 +513,7 @@
       <workItem from="1554902673519" duration="324000" />
       <workItem from="1555157059768" duration="468000" />
       <workItem from="1555229986276" duration="159000" />
-      <workItem from="1557467659010" duration="56486000" />
+      <workItem from="1557467659010" duration="56736000" />
     </task>
     <task id="LOCAL-00001" summary="新增功能：&#10;按时间查询&#10;数据插入&#10;登录页">
       <created>1553005372711</created>
@@ -657,11 +641,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557481339519</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询">
+      <created>1557577690526</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1557577690526</updated>
+    </task>
+    <task id="LOCAL-00020" summary="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询">
+      <created>1557577706037</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1557577706037</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128527000" />
+    <option name="totallyTimeSpent" value="128777000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,7 +742,8 @@
     <MESSAGE value="使用X-admin作为前端模版" />
     <MESSAGE value="生成了weather" />
     <MESSAGE value="修改了数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了数据库" />
+    <MESSAGE value="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1263,7 +1262,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3367">
+        <state relative-caret-position="-147">
           <caret line="90" column="85" lean-forward="true" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
         </state>
       </provider>
