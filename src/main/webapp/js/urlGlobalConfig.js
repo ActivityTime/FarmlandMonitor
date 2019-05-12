@@ -3,4 +3,7 @@ var urlGlobalConfig = {
     datWeather: function () {
        return urlGlobalConfig.global;
     },
+    sysUser: function () {
+        return urlGlobalConfig.global;
+    },
 };

@@ -25,6 +25,12 @@ public class SysUserController {
         return sysUserService.login(user);
     }
 
+    @RequestMapping("logcheck")
+    @ResponseBody
+    Result loginCheck(String logSession){
+        return sysUserService.checkLog(logSession);
+    }
+
     @RequestMapping("logout")
     @ResponseBody
     Result logout(String logSession){

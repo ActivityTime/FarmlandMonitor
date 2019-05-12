@@ -35,7 +35,11 @@ public class SysUserServiceImpl implements SysUserService {
             List<SysUser> sysUsers = sysUserMapper.selectByExample(condition);
             if (sysUsers != null && !sysUsers.isEmpty()) {
                 if (sysUsers.get(0).getPassword().equals(user.getPassword())) {
-                    return new Result(logdUsersMap.usrLog(user), "登陆成功", 200);
+                    class LogSession{
+                        String key = "logSession";
+                        String val = logdUsersMap.usrLog(user);
+                    }// 无意义
+                    return new Result(new LogSession().val, "登陆成功", 200);
                 } else {
                     return new Result(null, "登陆失败：密码错误", 500);
                 }
@@ -85,9 +89,9 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Result checkLog(String logSession) {
         if (logdUsersMap.checkLog(logSession)) {
-            return new Result(true, "用户已登陆", 200);
+            return new Result(logdUsersMap.getLogUser(logSession), "用户已登陆", 200);
         } else {
-            return new Result(true, "用户未登陆", 500);
+            return new Result("未登陆", "用户未登陆", 500);
         }
     }
 
@@ -143,11 +147,14 @@ class LogdUsersMap {
             if (far > timeOut) {
                 loginedUsers.remove(session);
             }
+
+            loginedUsers.get(session).setLastCheckTime(now);
         }
     }
 
     { // 登录状态过期检测线程启动
         new Thread(() -> {
+            while(true)
             try {
                 checkTime();
                 Thread.sleep(timeOut / 2);

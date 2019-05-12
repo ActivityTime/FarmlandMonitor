@@ -33,6 +33,10 @@
         </form>
     </div>
 
+    <script src="/js/urlGlobalConfig.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="js/sysUser/sysUser.js"></script>
     <script>
         $(function  () {
             layui.use('form', function(){
@@ -42,10 +46,7 @@
               //   });
               //监听提交
               form.on('submit(login)', function(data){
-                // alert(888)
-                layer.msg(JSON.stringify(data.field),function(){
-                    location.href='index.html'
-                });
+                  sysUser.login(data.field.username, data.field.password);
                 return false;
               });
             });
