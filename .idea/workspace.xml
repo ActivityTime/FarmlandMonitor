@@ -1,11 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询">
+    <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="前端：加载动画 按时间查询">
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/SysUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/SysUserExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/datWeather/data.Loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/datWeather/data.Loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/CheckDataController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/InsertDataController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/DataMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbHumidityMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbHumiditySqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbIndexMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbIndexProductMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbIndexProductSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbIndexSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbProductMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbProductSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbTemperatureMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbTemperatureSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbUserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbUserProductMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbUserProductSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbUserSqlProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbHumidity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbIndex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbIndexProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbTemperature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/TbUserProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/UserLogStat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/InsertDataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/InsertProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/LoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SelProductStatService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SelectDataByIdBwtTimeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SelectHumidByPidLimitService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SelectTempByPidLimitService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/InsertDataServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/InsertProductServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelProductStatusServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelectDataByIdBwtTimeServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelectHumidByPidLimitServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelectTempByPidLimitServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/controller/CheckDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/controller/InsertDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/DataMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbHumidityMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbHumiditySqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbIndexMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbIndexProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbIndexProductSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbIndexSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbProductSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbTemperatureMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbTemperatureSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbUserProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbUserProductSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/mapper/TbUserSqlProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/Data.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbHumidity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbIndex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbIndexProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbTemperature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/TbUserProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/UserLogStat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/InsertDataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/InsertProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/SelProductStatService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/SelectDataByIdBwtTimeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/SelectHumidByPidLimitService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/SelectTempByPidLimitService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/InsertDataServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/InsertProductServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/LoginServiceImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/LoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/SelProductStatusServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/SelectDataByIdBwtTimeServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/SelectHumidByPidLimitServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/service/impl/SelectTempByPidLimitServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/util/UUIDUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/conf/web.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,17 +138,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1169">
-              <caret line="90" column="85" lean-forward="true" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
+            <state relative-caret-position="1197">
+              <caret line="63" column="99" selection-start-line="63" selection-start-column="99" selection-end-line="63" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/Result.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
+            <state relative-caret-position="-1358">
+              <caret line="167" selection-start-line="167" selection-end-line="167" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -66,11 +194,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/datWeather/datWeather.js">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="38" lean-forward="true" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-            </state>
+            <state relative-caret-position="-33" />
           </provider>
         </entry>
       </file>
@@ -78,7 +204,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/urlGlobalConfig.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -146,7 +272,6 @@
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/InsertDataServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/controller/InsertDataController.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/mapper/DataMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/LoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/UserLogStat.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/other/loginCheck.js" />
@@ -163,7 +288,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/welcome.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/welcome.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather.dataLoader.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather.echarts.config.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather/dataLoader.js" />
@@ -173,6 +297,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather/data.Loader.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/LoginService.java" />
       </list>
     </option>
   </component>
@@ -195,11 +321,6 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="FarmlandMonitor" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="FarmlandMonitor" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Run Configurations" type="21c1f71a:MavenProjectsStructure$RunConfigurationsNode" />
         </path>
       </expand>
       <select />
@@ -255,7 +376,70 @@
               <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cekong" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
@@ -305,6 +489,19 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="datWeather" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,7 +563,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557589130634" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557647734759" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -402,7 +599,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.FarmlandMonitor [tomcat7:redeploy]">
+  <component name="RunManager" selected="Maven.FarmlandMonitor [clean,tomcat7:run]">
     <configuration name="FarmlandMonitor [clean,tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -511,7 +708,7 @@
       <workItem from="1554902673519" duration="324000" />
       <workItem from="1555157059768" duration="468000" />
       <workItem from="1555229986276" duration="159000" />
-      <workItem from="1557467659010" duration="65945000" />
+      <workItem from="1557467659010" duration="69054000" />
     </task>
     <task id="LOCAL-00001" summary="新增功能：&#10;按时间查询&#10;数据插入&#10;登录页">
       <created>1553005372711</created>
@@ -660,11 +857,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557577745372</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="前端：加载动画 按时间查询">
+      <created>1557589241220</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1557589241220</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137986000" />
+    <option name="totallyTimeSpent" value="141095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -679,7 +883,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49815497" visible="true" weight="0.17761394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49815497" visible="true" weight="0.24396783" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -748,74 +952,14 @@
     <MESSAGE value="生成了weather" />
     <MESSAGE value="修改了数据库" />
     <MESSAGE value="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询" />
+    <MESSAGE value="前端：加载动画 按时间查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端：加载动画 按时间查询" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelProductStatusServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SelectHumidByPidLimitServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1691">
-          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/UserLogStat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/mapper/TbHumidityMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="54" column="71" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/InsertDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1136,16 +1280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/DatWeatherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeather.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
@@ -1181,13 +1315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1236,21 +1363,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/urlGlobalConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1169">
-          <caret line="90" column="85" lean-forward="true" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="50" />
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1263,12 +1376,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="167" column="8" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="8" />
+        <state relative-caret-position="-1358">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/InsertDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/DatWeatherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="63" column="99" selection-start-line="63" selection-start-column="99" selection-end-line="63" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/UserLogStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/LoginServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
