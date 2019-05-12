@@ -3,14 +3,13 @@ package neau.cekong.service;
 import neau.cekong.pojo.Result;
 import neau.cekong.pojo.SysUser;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public interface SysUserService {
-    Map<String, SysUser> loginedUsers = new HashMap<>();
+//    Map<String, UserLoginStatus> loginedUsers = new HashMap<>();
 
     Result login(SysUser user);
-    Result insUser(SysUser user);
+    Result addUser(SysUser user);
+    Result delUser(SysUser user);
+    Result updPassword(SysUser user, String newPassword);
     Result checkLog(String logSession);
     Result logOut(String logSession);
 }
