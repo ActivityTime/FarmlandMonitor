@@ -20,9 +20,16 @@
 
 <div class="layui-fluid">
     <div class="layui-row">
-        <input type="text" class="date-check-start"/><span> - </span>
-        <input type="text" class="date-check-end"/>
-        <input type="button" class="date-check-do" value="设置时间"/>
+        <div class="layui-inline layui-show-xs-block ">
+            <input class="layui-input date-check-start"  autocomplete="off" placeholder="开始日" name="start" id="start">
+        </div>
+        <span> - </span>
+        <div class="layui-inline layui-show-xs-block">
+            <input class="layui-input date-check-end"  autocomplete="off" placeholder="截止日" name="end" id="end">
+        </div>
+        <div class="layui-inline layui-show-xs-block">
+            <button class="layui-btn date-check-do"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        </div>
     </div>
 </div>
 
