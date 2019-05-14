@@ -1,9 +1,10 @@
 package neau.cekong.mapper;
 
-import java.time.LocalDateTime;
 import neau.cekong.pojo.DatWeather;
 import neau.cekong.pojo.DatWeatherExample;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
 
 /**
  * DatWeatherMapper继承基类

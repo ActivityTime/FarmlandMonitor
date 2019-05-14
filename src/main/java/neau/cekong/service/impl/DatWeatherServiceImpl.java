@@ -3,6 +3,8 @@ package neau.cekong.service.impl;
 import neau.cekong.mapper.DatWeatherMapper;
 import neau.cekong.pojo.DatWeather;
 import neau.cekong.pojo.DatWeatherExample;
+import neau.cekong.pojo.PageInfoVO;
+import neau.cekong.service.DatWeatherPageService;
 import neau.cekong.service.DatWeatherService;
 import neau.cekong.util.LocalDateTimeUtils;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
-public class DatWeatherServiceImpl implements DatWeatherService {
+public class DatWeatherServiceImpl implements DatWeatherService, DatWeatherPageService {
 
     @Resource
     DatWeatherMapper datWeatherMapper;
@@ -42,6 +44,18 @@ public class DatWeatherServiceImpl implements DatWeatherService {
         return datWeatherMapper.selectByExample(btwXaX);
     }
 
+    @Override
+    public PageInfoVO findBetDates(LocalDateTime start, LocalDateTime end, Long page, Integer limit) {
+        /*按日期查询*/
+        DatWeatherExample btwXaX = new DatWeatherExample();
+        btwXaX.setOrderByClause("retime DESC");
+        btwXaX.createCriteria().andRetimeBetween(start, end);
+        long count = datWeatherMapper.countByExample(btwXaX);
+        btwXaX.setLimit(limit);
+        btwXaX.setOffset((page - 1) * limit);
+        List<DatWeather> datWeathers = datWeatherMapper.selectByExample(btwXaX);
+        return new PageInfoVO(count, datWeathers);
+    }
 }
 
 

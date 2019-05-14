@@ -32,7 +32,7 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5">
+                    <div class="layui-form layui-col-space5">
                         <div class="layui-input-inline layui-show-xs-block">
                             <input class="layui-input" placeholder="开始日" name="start" id="start"></div>
                         <div class="layui-input-inline layui-show-xs-block">
@@ -57,10 +57,10 @@
                         <!-- div class="layui-input-inline layui-show-xs-block">
                             <input type="text" name="username" placeholder="请输入订单号" autocomplete="off" class="layui-input"></div -->
                         <div class="layui-input-inline layui-show-xs-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="sreach">
+                            <button class="layui-btn excel-date" lay-filter="sreach">
                                 <i class="layui-icon">&#xe615;</i></button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="layui-card-header">
                     <button class="layui-btn layui-btn-danger" onclick="delAll()">
@@ -87,49 +87,81 @@
 <script src="/js/datWeather/echarts.config.js"></script>
 <script src="/js/datWeather/data.Loader.js"></script>
 <script>
-    layui.use(['laydate', 'form'],
-    function () {
-        var laydate = layui.laydate;
+    (function () {
+        /* 日期选择插件 */
+        layui.use(['laydate', 'form'],
+            function () {
+                var laydate = layui.laydate;
 
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#start' //指定元素
-        });
+                //执行一个laydate实例
+                laydate.render({
+                    type: 'datetime',
+                    elem: '#start' //指定元素
+                });
 
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#end' //指定元素
-        });
-    });
+                //执行一个laydate实例
+                laydate.render({
+                    type: 'datetime',
+                    elem: '#end' //指定元素
+                });
+            });
 
-    layui.use('table', function(){
-        var table = layui.table;
-        var colsJs = datWeather.echarts.config.chartsFormatJson;
-        var cols = [(function () {
-            var titles = [{field: 'retime', title: '时间', width: 150, sort: true}];
-            colsJs.forEach(function (j) {
-                j.dv.forEach(function (v) {
-                    titles.push({
-                        field: v,
-                        title: v,
-                        minWidth: 85,
-                        sort: true
-                    });
+        var datable;
+        /* 数据表格渲染 */
+        layui.use('table', function () {
+            var table = layui.table;
+            var colsJs = datWeather.echarts.config.chartsFormatJson;
+            var cols = [(function () {
+                var titles = [{field: 'retime', title: '时间', width: 150, sort: true}];
+                colsJs.forEach(function (j) {
+                    j.dv.forEach(function (v) {
+                        titles.push({
+                            field: v,
+                            title: v,
+                            minWidth: 85,
+                            sort: true
+                        });
+                    })
                 })
-            })
-            return titles;
-        }())];
+                return titles;
+            }())];
 
-        datWeather.data.loader.topX(1000, function (data) {
-            table.render({
-                elem: '#test'
-                ,data: data
-                ,cols: cols
-                ,page: true
+            datWeather.data.loader.topX(1000, function (data) {
+                datable = table.render({
+                    elem: '#test'
+                    , data: data
+                    , cols: cols
+                    , page: true
+                });
+            });
+
+            // 添加提换所有函数
+            String.prototype.replaceAll = function (AFindText, ARepText) {
+                var raRegExp = new RegExp(AFindText, "g");
+                return this.replace(raRegExp, ARepText);
+            };
+
+            /* 日期表格重渲染 */
+            $(".excel-date").click(function () {
+                console.log("data-----"+JSON.stringify(datable.cache));
+                datable.reload({
+                    url: datWeather.url + "datWeather/load/date",
+                    where: { //设定异步数据接口的额外参数，任意设
+                        start: $("#start").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
+                        end: $("#end").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
+                    },
+                    parseData: function(res){ //res 即为原始返回的数据
+                        return {
+                            "code": 0, //解析接口状态
+                            "msg": "", //解析提示文本
+                            "count": res.count, //解析数据长度
+                            "data": res.data //解析数据列表
+                        };
+                    },
+                });
             });
         });
-    });
-
+    }())
 </script>
 
 </html>

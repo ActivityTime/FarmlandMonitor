@@ -35,7 +35,7 @@ public class SysUserServiceImpl implements SysUserService {
             List<SysUser> sysUsers = sysUserMapper.selectByExample(condition);
             if (sysUsers != null && !sysUsers.isEmpty()) {
                 if (sysUsers.get(0).getPassword().equals(user.getPassword())) {
-                    class LogSession{
+                    class LogSession {
                         String key = "logSession";
                         String val = logdUsersMap.usrLog(user);
                     }// 无意义
@@ -144,7 +144,7 @@ class LogdUsersMap {
             now = LocalDateTime.now();
             Long far = LocalDateTimeUtils.betweenTwoTime(last, now, ChronoUnit.MINUTES);
 
-            if (far > timeOut) {
+            if (Math.abs(far) > timeOut) {
                 loginedUsers.remove(session);
             }
 
@@ -154,12 +154,13 @@ class LogdUsersMap {
 
     { // 登录状态过期检测线程启动
         new Thread(() -> {
-            while(true)
-            try {
-                checkTime();
-                Thread.sleep(timeOut / 2);
-            } catch (Exception e) {
-                checkTime();
+            while (true) {
+                try {
+                    checkTime();
+                    Thread.sleep(timeOut / 2);
+                } catch (Exception e) {
+
+                }
             }
         }).start();
     }

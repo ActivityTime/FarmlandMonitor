@@ -1,6 +1,7 @@
 package neau.cekong.controller;
 
 import neau.cekong.pojo.DatWeather;
+import neau.cekong.service.DatWeatherPageService;
 import neau.cekong.service.DatWeatherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,9 @@ public class DatWeatherController {
     @Resource
     DatWeatherService datWeatherService;
 
+    @Resource
+    DatWeatherPageService datWeatherPageService;
+
     DateTimeFormatter df0 = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
     @RequestMapping("load/top")
@@ -28,7 +32,12 @@ public class DatWeatherController {
 
     @RequestMapping("load/date")
     @ResponseBody
-    List<DatWeather> loadBtwDate(String start, String end) {
+    Object loadBtwDate(String start, String end, Long page, Integer limit) {
+
+        if (page != null && limit != null) {
+            return datWeatherPageService.findBetDates(LocalDateTime.parse(start, df0), LocalDateTime.parse(end, df0), page, limit);
+        }
+
         if (start == null || end == null)
             return datWeatherService.findBetDates(null, null);
         else
