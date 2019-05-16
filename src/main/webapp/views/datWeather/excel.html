@@ -63,11 +63,11 @@
                     </div>
                 </div>
                 <div class="layui-card-header">
-                    <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                    <!-- button class="layui-btn layui-btn-danger" onclick="delAll()">
                         <i class="layui-icon"></i>批量删除
-                    </button>
-                    <button class="layui-btn" onclick="xadmin.open('添加用户','./order-add.html',800,600)">
-                        <i class="layui-icon"></i>添加
+                    </button -->
+                    <button class="layui-btn excel-export" >
+                        <i class="layui-icon"></i>导出数据
                     </button>
                 </div>
                 <div class="layui-card-body ">
@@ -143,14 +143,14 @@
 
             /* 日期表格重渲染 */
             $(".excel-date").click(function () {
-                console.log("data-----"+JSON.stringify(datable.cache));
+                console.log("data-----" + JSON.stringify(datable.cache));
                 datable.reload({
                     url: datWeather.url + "datWeather/load/date",
                     where: { //设定异步数据接口的额外参数，任意设
                         start: $("#start").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
                         end: $("#end").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
                     },
-                    parseData: function(res){ //res 即为原始返回的数据
+                    parseData: function (res) { //res 即为原始返回的数据
                         return {
                             "code": 0, //解析接口状态
                             "msg": "", //解析提示文本
@@ -158,6 +158,30 @@
                             "data": res.data //解析数据列表
                         };
                     },
+                });
+            });
+
+            /* 导出数据表格 */
+            $(".excel-export").click(function () {
+                layui.use('layer', function(){
+                    var layer = layui.layer;
+
+                    var start= $("#start").val();
+                    var end= $("#end").val();
+
+                    if (start == "" || end == ""){
+                        layer.msg("日期不能为空");
+                    }else {
+                        window.open(datWeather.url + 'file/datWeather?start=' + $("#start").val() + '&end=' + $("#end").val());
+
+                        layer.alert("请求已提交，处理中\n若时间范围较大请耐心等候", {
+                            skin: 'layui-layer-molv' //样式类名
+                            ,closeBtn: 0
+                        });
+
+                    }
+
+                //    layer.load(0);
                 });
             });
         });
