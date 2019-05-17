@@ -159,6 +159,24 @@
             <artifactId>shiro-spring</artifactId>
             <version>${version.shiro}</version>
         </dependency>
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path-assert</artifactId>
+            <version>0.8.1</version>
+        </dependency>
     </dependencies>
     <build>
         <resources>
@@ -192,6 +210,14 @@
                     <username>neau</username>
                     <password>neau</password>
                     <url>http://202.118.163.18:8092/manager/text</url>
+                </configuration>
+            </plugin>
+            <!-- 发布时跳过单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

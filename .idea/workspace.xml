@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysFuncService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysFuncServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/neau/cekong/test/BaseJunit4Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/neau/cekong/test/RoleServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/shiro/UserRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/shiro/UserRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,32 +41,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/shiro/UserRealm.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/controller/SysUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="57" column="54" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="54" />
+            <state relative-caret-position="-46">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1913#1921#0" expanded="true" />
+                <element signature="e#2102#2103#0" expanded="true" />
+                <element signature="e#2160#2161#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="15" />
+            <state relative-caret-position="234">
+              <caret line="214" column="26" selection-start-line="214" selection-start-column="26" selection-end-line="214" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/neau/cekong/test/BaseJunit4Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+            <state relative-caret-position="304">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/neau/cekong/test/RoleServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,8 +95,8 @@
         <option value="JavaScript File" />
         <option value="package.json" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,12 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/DatWeatherService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeather.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/welcome.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/welcome.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather.dataLoader.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather.echarts.config.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather/dataLoader.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/datWeather/datWeather.js" />
@@ -140,7 +157,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/xadmin.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/login.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/shiro/NoAccountInputException.java" />
@@ -150,6 +166,13 @@
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/UserLoginStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/shiro/UserRealm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/SysFuncService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysFuncServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/neau/cekong/test/RoleServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/neau/cekong/test/BaseJunit4Test.java" />
       </list>
     </option>
   </component>
@@ -235,95 +258,22 @@
               <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
               <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
               <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cekong" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -386,7 +336,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558100408977" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558108435346" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -424,7 +374,92 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.FarmlandMonitor [clean,tomcat7:run]">
+  <component name="RunManager" selected="JUnit.All in FarmlandMonitor">
+    <configuration name="All in FarmlandMonitor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BaseJunit4Test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neau.cekong.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neau.cekong.test" />
+      <option name="MAIN_CLASS_NAME" value="neau.cekong.test.BaseJunit4Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neau.cekong.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neau.cekong.test" />
+      <option name="MAIN_CLASS_NAME" value="neau.cekong.test.RoleServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neau.cekong.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neau.cekong.test" />
+      <option name="MAIN_CLASS_NAME" value="neau.cekong.test.RoleServiceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleServiceTest.test0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neau.cekong.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neau.cekong.test" />
+      <option name="MAIN_CLASS_NAME" value="neau.cekong.test.RoleServiceTest" />
+      <option name="METHOD_NAME" value="test0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SysRoleServiceImpl" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="FarmlandMonitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neau.cekong.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neau.cekong.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="neau.cekong.service.impl.SysRoleServiceImpl" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FarmlandMonitor [clean,tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -438,6 +473,34 @@
               <list>
                 <option value="clean" />
                 <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="FarmlandMonitor [mvn,clean,package...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="mvn" />
+                <option value="clean" />
+                <option value="package" />
+                <option value="-Dmaven.test.skip=true" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -502,13 +565,28 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.BaseJunit4Test" />
+      <item itemvalue="JUnit.SysRoleServiceImpl" />
+      <item itemvalue="JUnit.RoleServiceTest" />
+      <item itemvalue="JUnit.RoleServiceTest.test" />
+      <item itemvalue="JUnit.RoleServiceTest.test0" />
       <item itemvalue="Maven.FarmlandMonitor [clean,tomcat7:run]" />
       <item itemvalue="Maven.FarmlandMonitor [tomcat7:deploy]" />
       <item itemvalue="Maven.FarmlandMonitor [tomcat7:redeploy]" />
+      <item itemvalue="Maven.FarmlandMonitor [mvn,clean,package...]" />
+      <item itemvalue="JUnit.All in FarmlandMonitor" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in FarmlandMonitor" />
+        <item itemvalue="JUnit.RoleServiceTest.test0" />
+        <item itemvalue="JUnit.RoleServiceTest" />
+        <item itemvalue="JUnit.RoleServiceTest.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpringBeansView">
-    <option name="beanDetailsProportion" value="0.53816044" />
+    <option name="beanDetailsProportion" value="0.14310345" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -534,7 +612,7 @@
       <workItem from="1555157059768" duration="468000" />
       <workItem from="1555229986276" duration="159000" />
       <workItem from="1557467659010" duration="107873000" />
-      <workItem from="1557907423716" duration="55533000" />
+      <workItem from="1557907423716" duration="63558000" />
     </task>
     <task id="LOCAL-00001" summary="新增功能：&#10;按时间查询&#10;数据插入&#10;登录页">
       <created>1553005372711</created>
@@ -739,11 +817,50 @@
       <option name="project" value="LOCAL" />
       <updated>1558095682341</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="生成了权限表">
+      <created>1558100655602</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1558100655602</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="RoleServiceTest - 2019.05.17 at 23h 14m 12s.xml">
+      <configuration name="RoleServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 22m 36s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 23m 06s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 29m 22s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 30m 50s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 31m 07s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleServiceTest_test0 - 2019.05.17 at 23h 31m 55s.xml">
+      <configuration name="RoleServiceTest.test0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BaseJunit4Test - 2019.05.17 at 23h 40m 29s.xml">
+      <configuration name="BaseJunit4Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_FarmlandMonitor - 2019.05.17 at 23h 52m 29s.xml">
+      <configuration name="All in FarmlandMonitor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_FarmlandMonitor - 2019.05.17 at 23h 53m 07s.xml">
+      <configuration name="All in FarmlandMonitor" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235447000" />
+    <option name="totallyTimeSpent" value="243472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -769,19 +886,19 @@
       <window_info anchor="bottom" id="Duplicate detector" weight="0.32991204" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.19354838" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.36070383" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932975" weight="0.32991204" />
-      <window_info anchor="bottom" id="Spring" order="7" weight="0.28152493" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.88856304" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32991204" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.80351907" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.4516129" />
-      <window_info anchor="bottom" id="Messages" order="14" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32991204" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -851,57 +968,14 @@
     <MESSAGE value="数据表格前1000" />
     <MESSAGE value="数据导出" />
     <MESSAGE value="继承了shiro框架&#10;重构了登录模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="继承了shiro框架&#10;重构了登录模块" />
+    <MESSAGE value="生成了权限表" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成了权限表" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeatherExcelVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/DealExcelService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="120" selection-start-line="7" selection-start-column="120" selection-end-line="7" selection-end-column="120" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Program Files/Maven/MylocalRepository/cn/hutool/hutool-all/4.5.9/hutool-all-4.5.9.jar!/cn/hutool/poi/excel/ExcelWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="302" column="43" selection-start-line="302" selection-start-column="43" selection-end-line="302" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DealExcelServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="95" column="84" selection-start-line="95" selection-start-column="84" selection-end-line="95" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/controller/FileDownLoadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/pure-css3-colorful-loading/js/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1026,13 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1520">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1085,13 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Program Files/Maven/MylocalRepository/org/apache/shiro/shiro-web/1.2.2/shiro-web-1.2.2-sources.jar!/org/apache/shiro/web/filter/AccessControlFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1121,26 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
           <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/controller/SysUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2208#2209#0" expanded="true" />
-            <element signature="e#2264#2265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1216,6 +1256,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysRoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="43" column="48" lean-forward="true" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1223,10 +1290,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysRoleService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/SysFuncService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        <state relative-caret-position="171">
+          <caret line="9" column="55" lean-forward="true" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/SysFuncServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/controller/SysUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="e#2160#2161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="214" column="26" selection-start-line="214" selection-start-column="26" selection-end-line="214" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/neau/cekong/test/RoleServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/neau/cekong/test/BaseJunit4Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
