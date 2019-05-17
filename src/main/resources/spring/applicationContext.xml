@@ -15,7 +15,7 @@
     <!-- 注解扫描 -->
     <context:component-scan base-package="neau.cekong.service.impl"></context:component-scan>
     <!-- 加载属性文件 -->
-    <context:property-placeholder location="classpath:db.properties"/>
+    <context:property-placeholder location="classpath:myDB/db.properties"/>
     <!-- 数据源 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     	<property name="driverClassName" value="${jdbc.driver}"></property>
@@ -27,7 +27,7 @@
     <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="dataSource"></property>
     	<property name="typeAliasesPackage" value="neau.cekong.pojo"></property>
-		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:myDB/mybatis-config.xml"></property>
     </bean>
     <!-- 扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

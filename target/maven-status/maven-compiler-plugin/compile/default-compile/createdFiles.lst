@@ -1,6 +1,7 @@
 neau\cekong\controller\SysUserController.class
 neau\cekong\pojo\DatWeatherExample$Criterion.class
 neau\cekong\service\DatWeatherPageService.class
+neau\cekong\shiro\NoAccountInputException.class
 neau\cekong\service\impl\SysUserServiceImpl$1LogSession.class
 neau\cekong\controller\DatWeatherController.class
 neau\cekong\controller\FileDownLoadController.class
@@ -20,6 +21,7 @@ neau\cekong\service\SysUserService.class
 neau\cekong\pojo\SysUserExample$GeneratedCriteria.class
 neau\cekong\pojo\SysUserExample.class
 neau\cekong\pojo\DatWeatherExample$Criteria.class
+neau\cekong\shiro\UserRealm.class
 neau\cekong\mapper\SysUserMapper.class
 neau\cekong\pojo\PageInfoVO.class
 neau\cekong\mapper\MyBatisBaseDao.class

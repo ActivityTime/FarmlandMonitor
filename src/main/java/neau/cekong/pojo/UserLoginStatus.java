@@ -3,6 +3,7 @@ package neau.cekong.pojo;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Deprecated
 public class UserLoginStatus extends SysUser{
 
     LocalDateTime lastCheckTime;

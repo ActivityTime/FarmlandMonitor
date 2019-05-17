@@ -6,6 +6,7 @@ import neau.cekong.pojo.SysUser;
 public interface SysUserService {
 //    Map<String, UserLoginStatus> loginedUsers = new HashMap<>();
 
+    @Deprecated
     Result login(SysUser user);
     Result addUser(SysUser user);
     Result delUser(SysUser user);
