@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="neau.cekong.mapper.SysFuncMapper">
+  <resultMap id="BaseResultMap" type="neau.cekong.pojo.SysFunc">
+    <id column="sys_func_func_id" jdbcType="INTEGER" property="func_id" />
+    <result column="sys_func_func_name" jdbcType="VARCHAR" property="func_name" />
+    <result column="sys_func_func_url" jdbcType="VARCHAR" property="func_url" />
+    <result column="sys_func_pid" jdbcType="INTEGER" property="pid" />
+    <result column="sys_func_func_type" jdbcType="VARCHAR" property="func_type" />
+    <result column="sys_func_func_code" jdbcType="VARCHAR" property="func_code" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    sys_func.func_id as sys_func_func_id, sys_func.func_name as sys_func_func_name, sys_func.func_url as sys_func_func_url, 
+    sys_func.pid as sys_func_pid, sys_func.func_type as sys_func_func_type, sys_func.func_code as sys_func_func_code
+  </sql>
+  <select id="selectByExample" parameterType="neau.cekong.pojo.SysFuncExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_func sys_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_func sys_func
+    where sys_func.func_id = #{func_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_func
+    where func_id = #{func_id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="neau.cekong.pojo.SysFuncExample">
+    delete from sys_func sys_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="neau.cekong.pojo.SysFunc">
+    insert into sys_func (func_id, func_name, func_url, 
+      pid, func_type, func_code
+      )
+    values (#{func_id,jdbcType=INTEGER}, #{func_name,jdbcType=VARCHAR}, #{func_url,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=INTEGER}, #{func_type,jdbcType=VARCHAR}, #{func_code,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="neau.cekong.pojo.SysFunc">
+    insert into sys_func
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="func_id != null">
+        func_id,
+      </if>
+      <if test="func_name != null">
+        func_name,
+      </if>
+      <if test="func_url != null">
+        func_url,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="func_type != null">
+        func_type,
+      </if>
+      <if test="func_code != null">
+        func_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="func_id != null">
+        #{func_id,jdbcType=INTEGER},
+      </if>
+      <if test="func_name != null">
+        #{func_name,jdbcType=VARCHAR},
+      </if>
+      <if test="func_url != null">
+        #{func_url,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="func_type != null">
+        #{func_type,jdbcType=VARCHAR},
+      </if>
+      <if test="func_code != null">
+        #{func_code,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="neau.cekong.pojo.SysFuncExample" resultType="java.lang.Long">
+    select count(*) from sys_func sys_func
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sys_func sys_func
+    <set>
+      <if test="record.func_id != null">
+        sys_func.func_id = #{record.func_id,jdbcType=INTEGER},
+      </if>
+      <if test="record.func_name != null">
+        sys_func.func_name = #{record.func_name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.func_url != null">
+        sys_func.func_url = #{record.func_url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pid != null">
+        sys_func.pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.func_type != null">
+        sys_func.func_type = #{record.func_type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.func_code != null">
+        sys_func.func_code = #{record.func_code,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sys_func sys_func
+    set sys_func.func_id = #{record.func_id,jdbcType=INTEGER},
+      sys_func.func_name = #{record.func_name,jdbcType=VARCHAR},
+      sys_func.func_url = #{record.func_url,jdbcType=VARCHAR},
+      sys_func.pid = #{record.pid,jdbcType=INTEGER},
+      sys_func.func_type = #{record.func_type,jdbcType=VARCHAR},
+      sys_func.func_code = #{record.func_code,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="neau.cekong.pojo.SysFunc">
+    update sys_func
+    <set>
+      <if test="func_name != null">
+        func_name = #{func_name,jdbcType=VARCHAR},
+      </if>
+      <if test="func_url != null">
+        func_url = #{func_url,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="func_type != null">
+        func_type = #{func_type,jdbcType=VARCHAR},
+      </if>
+      <if test="func_code != null">
+        func_code = #{func_code,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where func_id = #{func_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="neau.cekong.pojo.SysFunc">
+    update sys_func
+    set func_name = #{func_name,jdbcType=VARCHAR},
+      func_url = #{func_url,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=INTEGER},
+      func_type = #{func_type,jdbcType=VARCHAR},
+      func_code = #{func_code,jdbcType=VARCHAR}
+    where func_id = #{func_id,jdbcType=INTEGER}
+  </update>
+</mapper>
