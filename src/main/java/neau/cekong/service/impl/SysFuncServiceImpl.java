@@ -42,7 +42,7 @@ public class SysFuncServiceImpl implements SysFuncService {
             return null;
         }
         List<Integer> funcIdes = new LinkedList<>();
-        for (SysFuncRoleR frs : sysFuncRoleR) {
+        for (SysFuncRoleR frs : sysFuncRoleR ) {
             Integer funcId = frs.getFunc_id();
             funcIdes.add(funcId);
         }
@@ -55,6 +55,26 @@ public class SysFuncServiceImpl implements SysFuncService {
         return sysFuncs;
     }
 
+    @Override
+    public Set<SysFunc> findFuncesByRoles(List<SysRole> roles) {
+
+        return getSysFuncsByRoles(roles);
+    }
+
+    private Set<SysFunc> getSysFuncsByRoles(List<SysRole> roles) {
+
+        Set<SysFunc> sysFuncs = new HashSet<>();
+
+        for (SysRole sysRole : roles == null ? new ArrayList<SysRole>() : roles) {
+            List<SysFunc> funcesByRoleName = this.findFuncesByRoleName(sysRole.getRole_name());
+            for (SysFunc sf : funcesByRoleName) {
+                sysFuncs.add(sf);
+            }
+        }
+
+        return sysFuncs;
+    }
+
     @Resource
     SysRoleService sysRoleService;
 
@@ -62,14 +82,6 @@ public class SysFuncServiceImpl implements SysFuncService {
     public Set<SysFunc> findFuncesByUserName(String userName) {
         List<SysRole> neau = sysRoleService.findRolesByUserName(userName);
 
-        Set<SysFunc> sysFuncs = new HashSet<>();
-        for (SysRole sysRole : neau) {
-            List<SysFunc> funcesByRoleName = this.findFuncesByRoleName(sysRole.getRole_name());
-            for (SysFunc sf:funcesByRoleName) {
-                sysFuncs.add(sf);
-            }
-        }
-
-        return sysFuncs;
+        return getSysFuncsByRoles(neau);
     }
 }

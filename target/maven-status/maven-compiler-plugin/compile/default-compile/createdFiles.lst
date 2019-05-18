@@ -22,6 +22,7 @@ neau\cekong\pojo\SysUserRoleRExample.class
 neau\cekong\pojo\SysRoleExample.class
 neau\cekong\service\impl\DatWeatherServiceImpl.class
 neau\cekong\pojo\SysRoleExample$Criterion.class
+neau\cekong\aop\aspect\UserRoleFuncAspect.class
 neau\cekong\pojo\DatWeatherExample$GeneratedCriteria.class
 neau\cekong\service\impl\SysRoleServiceImpl.class
 neau\cekong\pojo\SysFuncExample$Criterion.class
@@ -32,6 +33,7 @@ neau\cekong\shiro\NoAccountInputException.class
 neau\cekong\controller\FileDownLoadController.class
 neau\cekong\mapper\SysFuncMapper.class
 neau\cekong\pojo\SysFuncExample.class
+neau\cekong\aop\pointcut\UserRoleFuncServicePointCut.class
 neau\cekong\service\impl\DealExcelServiceImpl.class
 neau\cekong\util\LocalDateTimeUtils.class
 neau\cekong\pojo\SysFuncRoleRExample$GeneratedCriteria.class
@@ -48,10 +50,12 @@ neau\cekong\pojo\SysRoleExample$Criteria.class
 neau\cekong\pojo\PageInfoVO.class
 neau\cekong\mapper\MyBatisBaseDao.class
 neau\cekong\service\SysFuncService.class
+neau\cekong\controller\PermissionController.class
 neau\cekong\service\DatWeatherService.class
 neau\cekong\service\SysRoleService.class
 neau\cekong\pojo\Result.class
 neau\cekong\pojo\SysRoleExample$GeneratedCriteria.class
+neau\cekong\aop\annotation\NullPointerReturnNull.class
 neau\cekong\pojo\DatWeatherExample.class
 neau\cekong\pojo\SysRole.class
 neau\cekong\pojo\SysFuncRoleRExample.class

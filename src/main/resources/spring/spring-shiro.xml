@@ -14,17 +14,24 @@
         <!-- 认证成功统一跳转，建议不配置，shiro 认证成功自动到上一个请求路径 -->
         <property name="successUrl" value="/user/loginSuccess"/>
         <!-- 通过 unauthorizedUrl 指定没有权限操作时跳转页面-->
-        <property name="unauthorizedUrl" value="/error.html"/>
+        <property name="unauthorizedUrl" value="/permission/refuse"/>
         <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
         <property name="filterChainDefinitions">
             <value>
                 <!-- /** = authc 所有 url 都必须认证通过才可以访问-->
+                <!-- /** = anon 所有 url 都可以匿名访问 -->
+
+                <!-- 登录 -->
                 /user/login = authc
                 /user/loginSuccess = user
                 /user/logcheck = user
                 /user/logout = logout
+
+                <!-- 权限 -->
+                /file/datWeather = authc,perms[excel:download]
+
+                <!-- 匿名访问 -->
                 /** = anon
-                <!-- /** = anon 所有 url 都可以匿名访问 -->
             </value>
         </property>
         <!-- 自定义过滤器 -->

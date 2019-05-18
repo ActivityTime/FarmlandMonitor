@@ -1,9 +1,11 @@
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\controller\DatWeatherController.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\aop\annotation\NullPointerReturnNull.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysUser.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysUserRoleRExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\DatWeather.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysUserService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\util\LocalDateTimeUtils.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\controller\PermissionController.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\mapper\SysUserMapper.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysUserExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysUserRoleR.java
@@ -26,6 +28,7 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysRoleExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\SysRoleServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysRoleService.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\aop\pointcut\UserRoleFuncServicePointCut.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\PageInfoVO.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\mapper\SysUserRoleRMapper.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\controller\FileDownLoadController.java
@@ -34,6 +37,7 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\Sys
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysFuncService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\shiro\UserRealm.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysFunc.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\aop\aspect\UserRoleFuncAspect.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysFuncRoleRExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\DatWeatherExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\DealExcelServiceImpl.java

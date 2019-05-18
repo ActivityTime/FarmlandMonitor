@@ -4,8 +4,8 @@ import neau.cekong.pojo.SysFunc;
 import neau.cekong.pojo.SysRole;
 import neau.cekong.service.SysFuncService;
 import neau.cekong.service.SysRoleService;
+import neau.cekong.shiro.UserRealm;
 import org.junit.Test;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
@@ -51,4 +51,15 @@ public class RoleServiceTest extends BaseJunit4Test {
             Thread.sleep(1000);
         }
     }
+
+    @Resource
+    UserRealm test;
+
+    @Test
+    public void test1(){
+
+        test.test(100);
+
+    }
 }
+
