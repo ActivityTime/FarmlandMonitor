@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml", "classpath:spring/spring*"})
+@ContextConfiguration(locations = {"classpath:spring/spring-aop.xml", "classpath:spring/spring*"})
 @TransactionConfiguration(transactionManager = "txManage", defaultRollback = true)
 @Transactional//应用事务，这样测试就不会在数据库中留下痕迹
 @WebAppConfiguration

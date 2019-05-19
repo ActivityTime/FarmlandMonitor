@@ -16,4 +16,10 @@ public class PermissionController {
         return new Result(null, "访问拒绝：您没有权限", 500);
     }
 
+    @RequestMapping("userlist")
+    @ResponseBody
+    Result userList(){
+        return null;
+    }
+
 }

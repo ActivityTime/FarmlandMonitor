@@ -30,6 +30,7 @@ neau\cekong\controller\SysUserController.class
 neau\cekong\pojo\SysFuncRoleR.class
 neau\cekong\pojo\SysFuncRoleRExample$Criteria.class
 neau\cekong\shiro\NoAccountInputException.class
+neau\cekong\pojo\UserListItemVO.class
 neau\cekong\controller\FileDownLoadController.class
 neau\cekong\mapper\SysFuncMapper.class
 neau\cekong\pojo\SysFuncExample.class

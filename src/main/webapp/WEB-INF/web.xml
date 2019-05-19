@@ -3,11 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <!-- 上下文参数 -->
+    <!-- 上下文参数 spring配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring/applicationContext.xml,
+            classpath:spring/spring-aop.xml,
             classpath:spring/spring*.xml,
         </param-value>
     </context-param>

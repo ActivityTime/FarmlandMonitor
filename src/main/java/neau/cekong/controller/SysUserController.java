@@ -71,4 +71,10 @@ public class SysUserController {
     Result logout(String logSession) {
         return sysUserService.logOut(logSession);
     }
+
+    @RequestMapping("list")
+    @ResponseBody
+    Result userList(){
+        return null;
+    }
 }
