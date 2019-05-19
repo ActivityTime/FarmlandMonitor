@@ -11,6 +11,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -26,37 +27,48 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public Result addUser(SysUser user) {
-        int i = sysUserMapper.insertSelective(user);
-        if (i > 0) {
-            return new Result(null, "注册成功", 200);
+        SysUserExample sysUserExample = new SysUserExample();
+        sysUserExample.createCriteria().andUsernameEqualTo(user.getUsername());
+        List<SysUser> sysUsers = sysUserMapper.selectByExample(sysUserExample);
+        if (sysUsers == null || sysUsers.size() == 0) {
+            int i = sysUserMapper.insertSelective(user);
+            if (i > 0) {
+                return new Result(null, "注册成功", 200);
+            }
+            return new Result(null, "注册失败：未知错误", 500);
+        } else {
+            return new Result(null, "注册失败：用户名已存在", 500);
         }
-        return new Result(null, "注册失败：用户名已存在", 500);
     }
 
     @Override
     public Result delUser(SysUser user) {
         String username = user.getUsername();
-        String password = user.getPassword();
+//        String password = user.getPassword();
         SysUserExample condition = new SysUserExample();
-        condition.createCriteria().andUsernameEqualTo(username).andPasswordEqualTo(password);
-        int i = sysUserMapper.deleteByExample(condition);
-        if (i > 0) {
+        condition.createCriteria().andUsernameEqualTo(username);
+        List<SysUser> sysUsers = sysUserMapper.selectByExample(condition);
+        if(sysUsers != null && sysUsers.size() > 0){
+            sysUserMapper.deleteByExample(condition);
             return new Result(null, "删除成功", 200);
+        }else{
+            return new Result(null, "删除失败：用户名不存在", 500);
         }
-        return new Result(null, "删除失败", 500);
     }
 
     @Override
     public Result updPassword(SysUser user, String nwePassword) {
         SysUserExample condition = new SysUserExample();
-        condition.createCriteria().andUsernameEqualTo(user.getUsername()).andPasswordEqualTo(user.getPassword());
+        condition.createCriteria().andUsernameEqualTo(user.getUsername());//.andPasswordEqualTo(user.getPassword())
+        List<SysUser> sysUsers = sysUserMapper.selectByExample(condition);
         SysUser sysUser = new SysUser();
         sysUser.setPassword(nwePassword);
-        int i = sysUserMapper.updateByExampleSelective(sysUser, condition);
-        if (i > 0) {
+        if(sysUsers != null && sysUsers.size() > 0){
+            sysUserMapper.updateByExampleSelective(sysUser, condition);
             return new Result(null, "修改成功", 200);
+        }else{
+            return new Result(null, "修改失败：用户名不存在", 500);
         }
-        return new Result(null, "修改失败", 500);
     }
 
 
@@ -76,6 +88,6 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public Result logOut(String logSession) {
-            return new Result(true, "用户已注销", 200);
+        return new Result(true, "用户已注销", 200);
     }
 }

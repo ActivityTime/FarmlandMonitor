@@ -53,4 +53,21 @@ public class SysRoleServiceImpl implements SysRoleService {
         return sysRoles;
     }
 
+    @Override
+    public Result addRole(String roleName) {
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+
+        if (sysRoles == null || sysRoles.size() == 0) {
+            SysRole sysRole = new SysRole();
+            sysRole.setRole_name(roleName);
+            sysRoleMapper.insertSelective(sysRole);
+            return new Result(false, "创建成功", 200);
+        } else {
+            return new Result(false, "创建失败：角色名已存在", 500);
+        }
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package neau.cekong.controller;
 
 import neau.cekong.pojo.Result;
+import neau.cekong.pojo.SysUser;
 import neau.cekong.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -72,9 +73,32 @@ public class SysUserController {
         return sysUserService.logOut(logSession);
     }
 
-    @RequestMapping("list")
+    @RequestMapping("add")
     @ResponseBody
-    Result userList(){
-        return null;
+    Result adduser(String username, String password){
+        SysUser user = new SysUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        Result result = sysUserService.addUser(user);
+        return result;
+    }
+
+    @RequestMapping("del")
+    @ResponseBody
+    Result deluser(String username){
+        SysUser user = new SysUser();
+        user.setUsername(username);
+        Result result = sysUserService.delUser(user);
+        return result;
+    }
+
+    @RequestMapping("alt")
+    @ResponseBody
+    Result altuser(String username, String password){
+        SysUser user = new SysUser();
+        user.setPassword(password);
+        user.setUsername(username);
+        Result result = sysUserService.updPassword(user, password);
+        return result;
     }
 }

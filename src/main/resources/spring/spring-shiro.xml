@@ -29,6 +29,10 @@
 
                 <!-- 权限 -->
                 /file/datWeather = authc,perms[excel:download]
+                /user/add = authc,perms[user:create]
+                /user/del = authc,perms[user:delete]
+                /user/alt = authc,perms[user:update]
+                /permission/userlist = authc,perms[user:select]
 
                 <!-- 匿名访问 -->
                 /** = anon

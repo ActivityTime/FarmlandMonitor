@@ -3,6 +3,8 @@ neau\cekong\pojo\DatWeatherExample$Criterion.class
 neau\cekong\mapper\SysUserRoleRMapper.class
 neau\cekong\service\DatWeatherPageService.class
 neau\cekong\controller\DatWeatherController.class
+neau\cekong\service\PermissionManaService.class
+neau\cekong\service\impl\PerssionManaServiceImpl.class
 neau\cekong\pojo\UserLoginStatus.class
 neau\cekong\mapper\DatWeatherMapper.class
 neau\cekong\pojo\DatWeather.class
@@ -15,6 +17,8 @@ neau\cekong\mapper\SysFuncRoleRMapper.class
 neau\cekong\pojo\SysUserExample.class
 neau\cekong\shiro\UserRealm.class
 neau\cekong\pojo\SysFuncExample$GeneratedCriteria.class
+neau\cekong\pojo\SysUserRemark.class
+neau\cekong\pojo\SysUserRemarkExample$Criteria.class
 neau\cekong\mapper\SysUserMapper.class
 neau\cekong\pojo\SysFuncRoleRExample$Criterion.class
 neau\cekong\pojo\SysUserRoleRExample$GeneratedCriteria.class
@@ -29,7 +33,9 @@ neau\cekong\pojo\SysFuncExample$Criterion.class
 neau\cekong\controller\SysUserController.class
 neau\cekong\pojo\SysFuncRoleR.class
 neau\cekong\pojo\SysFuncRoleRExample$Criteria.class
+neau\cekong\pojo\SysUserRemarkExample.class
 neau\cekong\shiro\NoAccountInputException.class
+neau\cekong\pojo\SysUserRemarkExample$GeneratedCriteria.class
 neau\cekong\pojo\UserListItemVO.class
 neau\cekong\controller\FileDownLoadController.class
 neau\cekong\mapper\SysFuncMapper.class
@@ -42,6 +48,7 @@ neau\cekong\util\UUIDUtils.class
 neau\cekong\util\MyExcelUtils.class
 neau\cekong\pojo\SysFunc.class
 neau\cekong\service\SysUserService.class
+neau\cekong\mapper\SysUserRemarkMapper.class
 neau\cekong\pojo\DatWeatherExample$Criteria.class
 neau\cekong\pojo\SysUserRoleR.class
 neau\cekong\pojo\SysUserRoleRExample$Criterion.class
@@ -61,5 +68,6 @@ neau\cekong\pojo\DatWeatherExample.class
 neau\cekong\pojo\SysRole.class
 neau\cekong\pojo\SysFuncRoleRExample.class
 neau\cekong\pojo\SysUser.class
+neau\cekong\pojo\SysUserRemarkExample$Criterion.class
 neau\cekong\service\impl\SysFuncServiceImpl.class
 neau\cekong\filter\LoginDoInterceptor.class
