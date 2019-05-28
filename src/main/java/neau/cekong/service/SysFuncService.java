@@ -10,4 +10,5 @@ public interface SysFuncService {
     List<SysFunc> findFuncesByRoleName(String roleName);
     Set<SysFunc> findFuncesByRoles(List<SysRole> roles);
     Set<SysFunc> findFuncesByUserName(String userName);
+    List<SysFunc> findAllFunces();
 }

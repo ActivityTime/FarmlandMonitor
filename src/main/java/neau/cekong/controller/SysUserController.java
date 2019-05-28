@@ -40,9 +40,9 @@ public class SysUserController {
         } else if (exceptionClassName != null) {
             error = "登陆失败：其他错误：" + exceptionClassName;
         } else {
-            if(username == null || password == null){
+            if (username == null || password == null) {
                 return new Result(null, "未输入账户信息", 500);
-            }else {
+            } else {
                 return new Result(null, "登录失败：当前已登录", 200);
             }
         }
@@ -75,7 +75,7 @@ public class SysUserController {
 
     @RequestMapping("add")
     @ResponseBody
-    Result adduser(String username, String password){
+    Result adduser(String username, String password) {
         SysUser user = new SysUser();
         user.setUsername(username);
         user.setPassword(password);
@@ -85,7 +85,7 @@ public class SysUserController {
 
     @RequestMapping("del")
     @ResponseBody
-    Result deluser(String username){
+    Result deluser(String username) {
         SysUser user = new SysUser();
         user.setUsername(username);
         Result result = sysUserService.delUser(user);
@@ -94,11 +94,18 @@ public class SysUserController {
 
     @RequestMapping("alt")
     @ResponseBody
-    Result altuser(String username, String password){
+    Result altuser(String username, String password) {
         SysUser user = new SysUser();
         user.setPassword(password);
         user.setUsername(username);
         Result result = sysUserService.updPassword(user, password);
+        return result;
+    }
+
+    @RequestMapping("password")
+    @ResponseBody
+    Result getPassWord(String username) {
+        Result result = sysUserService.findPassword(username);
         return result;
     }
 }

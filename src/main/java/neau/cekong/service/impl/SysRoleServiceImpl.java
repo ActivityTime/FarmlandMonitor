@@ -54,6 +54,13 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     @Override
+    public List<SysRole> findAllRoles() {
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+        return sysRoles;
+    }
+
+    @Override
     public Result addRole(String roleName) {
         SysRoleExample sysRoleExample = new SysRoleExample();
         sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
@@ -63,11 +70,25 @@ public class SysRoleServiceImpl implements SysRoleService {
             SysRole sysRole = new SysRole();
             sysRole.setRole_name(roleName);
             sysRoleMapper.insertSelective(sysRole);
-            return new Result(false, "创建成功", 200);
+            return new Result(true, "创建成功", 200);
         } else {
             return new Result(false, "创建失败：角色名已存在", 500);
         }
 
+    }
+
+    @Override
+    public Result delRole(String roleName) {
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+
+        if (sysRoles != null && sysRoles.size() > 0) {
+            sysRoleMapper.deleteByExample(sysRoleExample);
+            return new Result(true, "删除成功", 200);
+        } else {
+            return new Result(false, "删除失败：角色名不存在", 500);
+        }
     }
 
 }

@@ -11,6 +11,7 @@ public interface SysUserService {
     Result addUser(SysUser user);
     Result delUser(SysUser user);
     Result updPassword(SysUser user, String newPassword);
+    Result findPassword(String username);
     Result checkLog(String logSession);
     Result logOut(String logSession);
 }

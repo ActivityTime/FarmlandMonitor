@@ -135,182 +135,182 @@ public class SysUserRoleRExample {
         }
 
         public Criteria andUr_idIsNull() {
-            addCriterion("sys_user_role_r.ur_id is null");
+            addCriterion("ur_id is null");
             return (Criteria) this;
         }
 
         public Criteria andUr_idIsNotNull() {
-            addCriterion("sys_user_role_r.ur_id is not null");
+            addCriterion("ur_id is not null");
             return (Criteria) this;
         }
 
         public Criteria andUr_idEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.ur_id =", value, "ur_id");
+            addCriterion("ur_id =", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idNotEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.ur_id <>", value, "ur_id");
+            addCriterion("ur_id <>", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idGreaterThan(Integer value) {
-            addCriterion("sys_user_role_r.ur_id >", value, "ur_id");
+            addCriterion("ur_id >", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.ur_id >=", value, "ur_id");
+            addCriterion("ur_id >=", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idLessThan(Integer value) {
-            addCriterion("sys_user_role_r.ur_id <", value, "ur_id");
+            addCriterion("ur_id <", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idLessThanOrEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.ur_id <=", value, "ur_id");
+            addCriterion("ur_id <=", value, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idIn(List<Integer> values) {
-            addCriterion("sys_user_role_r.ur_id in", values, "ur_id");
+            addCriterion("ur_id in", values, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idNotIn(List<Integer> values) {
-            addCriterion("sys_user_role_r.ur_id not in", values, "ur_id");
+            addCriterion("ur_id not in", values, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idBetween(Integer value1, Integer value2) {
-            addCriterion("sys_user_role_r.ur_id between", value1, value2, "ur_id");
+            addCriterion("ur_id between", value1, value2, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUr_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("sys_user_role_r.ur_id not between", value1, value2, "ur_id");
+            addCriterion("ur_id not between", value1, value2, "ur_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idIsNull() {
-            addCriterion("sys_user_role_r.user_id is null");
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
         public Criteria andUser_idIsNotNull() {
-            addCriterion("sys_user_role_r.user_id is not null");
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
         public Criteria andUser_idEqualTo(Long value) {
-            addCriterion("sys_user_role_r.user_id =", value, "user_id");
+            addCriterion("user_id =", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idNotEqualTo(Long value) {
-            addCriterion("sys_user_role_r.user_id <>", value, "user_id");
+            addCriterion("user_id <>", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idGreaterThan(Long value) {
-            addCriterion("sys_user_role_r.user_id >", value, "user_id");
+            addCriterion("user_id >", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idGreaterThanOrEqualTo(Long value) {
-            addCriterion("sys_user_role_r.user_id >=", value, "user_id");
+            addCriterion("user_id >=", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idLessThan(Long value) {
-            addCriterion("sys_user_role_r.user_id <", value, "user_id");
+            addCriterion("user_id <", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idLessThanOrEqualTo(Long value) {
-            addCriterion("sys_user_role_r.user_id <=", value, "user_id");
+            addCriterion("user_id <=", value, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idIn(List<Long> values) {
-            addCriterion("sys_user_role_r.user_id in", values, "user_id");
+            addCriterion("user_id in", values, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idNotIn(List<Long> values) {
-            addCriterion("sys_user_role_r.user_id not in", values, "user_id");
+            addCriterion("user_id not in", values, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idBetween(Long value1, Long value2) {
-            addCriterion("sys_user_role_r.user_id between", value1, value2, "user_id");
+            addCriterion("user_id between", value1, value2, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andUser_idNotBetween(Long value1, Long value2) {
-            addCriterion("sys_user_role_r.user_id not between", value1, value2, "user_id");
+            addCriterion("user_id not between", value1, value2, "user_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idIsNull() {
-            addCriterion("sys_user_role_r.role_id is null");
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
         public Criteria andRole_idIsNotNull() {
-            addCriterion("sys_user_role_r.role_id is not null");
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
         public Criteria andRole_idEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.role_id =", value, "role_id");
+            addCriterion("role_id =", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idNotEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.role_id <>", value, "role_id");
+            addCriterion("role_id <>", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idGreaterThan(Integer value) {
-            addCriterion("sys_user_role_r.role_id >", value, "role_id");
+            addCriterion("role_id >", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.role_id >=", value, "role_id");
+            addCriterion("role_id >=", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idLessThan(Integer value) {
-            addCriterion("sys_user_role_r.role_id <", value, "role_id");
+            addCriterion("role_id <", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idLessThanOrEqualTo(Integer value) {
-            addCriterion("sys_user_role_r.role_id <=", value, "role_id");
+            addCriterion("role_id <=", value, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idIn(List<Integer> values) {
-            addCriterion("sys_user_role_r.role_id in", values, "role_id");
+            addCriterion("role_id in", values, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idNotIn(List<Integer> values) {
-            addCriterion("sys_user_role_r.role_id not in", values, "role_id");
+            addCriterion("role_id not in", values, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idBetween(Integer value1, Integer value2) {
-            addCriterion("sys_user_role_r.role_id between", value1, value2, "role_id");
+            addCriterion("role_id between", value1, value2, "role_id");
             return (Criteria) this;
         }
 
         public Criteria andRole_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("sys_user_role_r.role_id not between", value1, value2, "role_id");
+            addCriterion("role_id not between", value1, value2, "role_id");
             return (Criteria) this;
         }
     }

@@ -71,6 +71,20 @@ public class SysUserServiceImpl implements SysUserService {
         }
     }
 
+    @Override
+    public Result findPassword(String username) {
+        SysUserExample condition = new SysUserExample();
+        condition.createCriteria().andUsernameEqualTo(username);//.andPasswordEqualTo(user.getPassword())
+        List<SysUser> sysUsers = sysUserMapper.selectByExample(condition);
+
+        if(sysUsers != null && sysUsers.size() > 0){
+            String password = sysUsers.get(0).getPassword();
+            return new Result(password, "查询成功", 200);
+        }else{
+            return new Result(null, "查询失败：用户名不存在", 500);
+        }
+    }
+
 
     @Override
     public Result checkLog(String logSession) {

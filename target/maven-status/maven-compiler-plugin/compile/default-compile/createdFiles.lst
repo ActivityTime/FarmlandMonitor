@@ -8,6 +8,7 @@ neau\cekong\service\impl\PerssionManaServiceImpl.class
 neau\cekong\pojo\UserLoginStatus.class
 neau\cekong\mapper\DatWeatherMapper.class
 neau\cekong\pojo\DatWeather.class
+neau\cekong\service\impl\SysUserRemarkServiceImpl.class
 neau\cekong\pojo\SysUserExample$Criteria.class
 neau\cekong\service\DealExcelService.class
 neau\cekong\pojo\SysUserExample$Criterion.class
@@ -26,6 +27,7 @@ neau\cekong\pojo\SysUserRoleRExample.class
 neau\cekong\pojo\SysRoleExample.class
 neau\cekong\service\impl\DatWeatherServiceImpl.class
 neau\cekong\pojo\SysRoleExample$Criterion.class
+neau\cekong\service\SysUserRemarkService.class
 neau\cekong\aop\aspect\UserRoleFuncAspect.class
 neau\cekong\pojo\DatWeatherExample$GeneratedCriteria.class
 neau\cekong\service\impl\SysRoleServiceImpl.class

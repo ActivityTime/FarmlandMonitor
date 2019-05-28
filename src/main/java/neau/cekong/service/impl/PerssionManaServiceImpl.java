@@ -1,7 +1,6 @@
 package neau.cekong.service.impl;
 
-import neau.cekong.mapper.SysUserMapper;
-import neau.cekong.mapper.SysUserRemarkMapper;
+import neau.cekong.mapper.*;
 import neau.cekong.pojo.*;
 import neau.cekong.service.PermissionManaService;
 import neau.cekong.service.SysRoleService;
@@ -24,6 +23,18 @@ public class PerssionManaServiceImpl implements PermissionManaService {
 
     @Resource
     SysUserRemarkMapper sysUserRemarkMapper;
+
+    @Resource
+    SysRoleMapper sysRoleMapper;
+
+    @Resource
+    SysUserRoleRMapper sysUserRoleRMapper;
+
+    @Resource
+    SysFuncMapper sysFuncMapper;
+
+    @Resource
+    SysFuncRoleRMapper sysFuncRoleRMapper;
 
     @Override
     public List<UserListItemVO> findUsersList() {
@@ -70,28 +81,132 @@ public class PerssionManaServiceImpl implements PermissionManaService {
         return userList;
     }
 
-    @Override
-    public List<SysRole> findAllRoles() {
-        return null;
-    }
 
     @Override
     public Result addRoleToUser(String roleName, String username) {
-        return null;
+
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+        if (sysRoles != null && sysRoles.size() > 0) {
+            Integer role_id = sysRoles.get(0).getRole_id();
+
+            SysUserExample sysUserExample = new SysUserExample();
+            sysUserExample.createCriteria().andUsernameEqualTo(username);
+            List<SysUser> sysUsers = sysUserMapper.selectByExample(sysUserExample);
+
+            if (sysUsers != null && sysUsers.size() > 0) {
+                Long user_id = sysUsers.get(0).getId();
+
+                SysUserRoleR sysUserRoleR = new SysUserRoleR();
+                sysUserRoleR.setRole_id(role_id);
+                sysUserRoleR.setUser_id(user_id);
+
+                sysUserRoleRMapper.insertSelective(sysUserRoleR);
+
+                return new Result(true, "用户角色设置成功", 200);
+            } else {
+                return new Result(false, "用户角色设置失败：用户不存在", 500);
+            }
+        } else {
+            return new Result(false, "用户角色设置失败：角色不存在", 500);
+        }
     }
 
     @Override
     public Result delRoleToUser(String roleName, String username) {
-        return null;
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+        if (sysRoles != null && sysRoles.size() > 0) {
+            Integer role_id = sysRoles.get(0).getRole_id();
+            System.out.print("");// 本行没用
+            SysUserExample sysUserExample = new SysUserExample();
+            sysUserExample.createCriteria().andUsernameEqualTo(username);
+            List<SysUser> sysUsers = sysUserMapper.selectByExample(sysUserExample);
+
+            if (sysUsers != null && sysUsers.size() > 0) {
+                Long user_id = sysUsers.get(0).getId();
+
+                SysUserRoleRExample sysUserRoleRExample = new SysUserRoleRExample();
+                sysUserRoleRExample.createCriteria().andUser_idEqualTo(user_id).andRole_idEqualTo(role_id);
+                List<SysUserRoleR> sysUserRoleRS = sysUserRoleRMapper.selectByExample(sysUserRoleRExample);
+                if (sysUserRoleRS != null && sysUserRoleRS.size() > 0) {
+                    sysUserRoleRMapper.deleteByExample(sysUserRoleRExample);
+                    return new Result(true, "用户角色删除成功", 200);
+                } else {
+                    return new Result(false, "用户角色删除失败：用户不持有该角色", 500);
+                }
+
+
+            } else {
+                return new Result(false, "用户角色删除失败：用户不存在", 500);
+            }
+        } else {
+            return new Result(false, "用户角色删除失败：角色不存在", 500);
+        }
     }
 
     @Override
     public Result addFuncesToRole(String funcCode, String roleName) {
-        return null;
+
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+        if (sysRoles != null && sysRoles.size() > 0) {
+            Integer role_id = sysRoles.get(0).getRole_id();
+
+            SysFuncExample sysFuncExample = new SysFuncExample();
+            sysFuncExample.createCriteria().andFunc_codeEqualTo(funcCode);
+            List<SysFunc> sysFuncs = sysFuncMapper.selectByExample(sysFuncExample);
+
+            if (sysFuncs != null && sysFuncs.size() > 0) {
+                Integer func_id = sysFuncs.get(0).getFunc_id();
+
+                SysFuncRoleR sysFuncRoleR = new SysFuncRoleR();
+                sysFuncRoleR.setFunc_id(func_id);
+                sysFuncRoleR.setRole_id(role_id);
+
+                sysFuncRoleRMapper.insertSelective(sysFuncRoleR);
+
+                return new Result(true, "角色权限设置成功", 200);
+            } else {
+                return new Result(false, "角色权限设置失败：权限码不存在", 500);
+            }
+        } else {
+            return new Result(false, "角色权限设置失败：角色不存在", 500);
+        }
     }
 
     @Override
     public Result delFuncesToRole(String funcCode, String roleName) {
-        return null;
+        SysRoleExample sysRoleExample = new SysRoleExample();
+        sysRoleExample.createCriteria().andRole_nameEqualTo(roleName);
+        List<SysRole> sysRoles = sysRoleMapper.selectByExample(sysRoleExample);
+        if (sysRoles != null && sysRoles.size() > 0) {
+            Integer role_id = sysRoles.get(0).getRole_id();
+            System.out.print("");// 本行没用
+            SysFuncExample sysFuncExample = new SysFuncExample();
+            sysFuncExample.createCriteria().andFunc_codeEqualTo(funcCode);
+            List<SysFunc> sysFuncs = sysFuncMapper.selectByExample(sysFuncExample);
+
+            if (sysFuncs != null && sysFuncs.size() > 0) {
+                Integer func_id = sysFuncs.get(0).getFunc_id();
+
+                SysFuncRoleRExample sysFuncRoleRExample = new SysFuncRoleRExample();
+                sysFuncRoleRExample.createCriteria().andFunc_idEqualTo(func_id).andRole_idEqualTo(role_id);
+                List<SysFuncRoleR> sysFuncRoleRS = sysFuncRoleRMapper.selectByExample(sysFuncRoleRExample);
+                if (sysFuncRoleRS != null && sysFuncRoleRS.size() > 0) {
+                    sysFuncRoleRMapper.deleteByExample(sysFuncRoleRExample);
+                    return new Result(true, "角色权限删除成功", 200);
+                } else {
+                    return new Result(false, "角色权限删除失败：角色不持有该权限", 500);
+                }
+            } else {
+                return new Result(false, "角色权限设置失败：权限码不存在", 500);
+            }
+        } else {
+            return new Result(false, "角色权限设置失败：角色不存在", 500);
+        }
     }
 }

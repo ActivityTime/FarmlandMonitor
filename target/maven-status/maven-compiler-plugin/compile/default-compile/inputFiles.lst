@@ -30,6 +30,7 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\Sys
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\DatWeather.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysUserService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysUserExample.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\SysUserRemarkServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\SysFuncServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\SysUserServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\DatWeatherServiceImpl.java
@@ -41,6 +42,7 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\Use
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\mapper\SysFuncMapper.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\DatWeatherPageService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\DealExcelService.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysUserRemarkService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysRoleExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\SysRoleService.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\aop\pointcut\UserRoleFuncServicePointCut.java

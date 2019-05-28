@@ -84,4 +84,11 @@ public class SysFuncServiceImpl implements SysFuncService {
 
         return getSysFuncsByRoles(neau);
     }
+
+    @Override
+    public List<SysFunc> findAllFunces() {
+        SysFuncExample sysFuncExample = new SysFuncExample();
+        List<SysFunc> sysFuncs = sysFuncMapper.selectByExample(sysFuncExample);
+        return sysFuncs;
+    }
 }
