@@ -50,11 +50,45 @@ public class PermissionController {
 
         List<SysUserRemark> remarks = sysUserRemarkService.findRemarksByUsername(username);
 
-        if(remarks == null){
-            return new Result(null, "未查询到数据", 500);
+        if (remarks == null) {
+            return new Result(null, "未查询到数据", 200);
         }
 
         return new Result(remarks, "查询成功", 200);
+    }
+
+    @RequestMapping("user/remark/add")
+    @ResponseBody
+    Result addUserRemark(String username, String markname, String remark) {
+
+        return sysUserRemarkService.addRemarkByUsername(username, markname, remark);
+    }
+
+    @RequestMapping("user/remark/alt")
+    @ResponseBody
+    Result altUserRemark(String username, String markname, String newname, String remark) {
+
+        return sysUserRemarkService.altRemarkByUsername(username, markname, newname, remark);
+    }
+
+    @RequestMapping("user/remark/del")
+    @ResponseBody
+    Result delUserRemark(String username, String markname) {
+
+        return sysUserRemarkService.delRemarkByUsername(username, markname);
+    }
+
+    @RequestMapping("user/role")
+    @ResponseBody
+    Result userRole(String username) {
+
+        List<SysRole> roles = sysRoleService.findRolesByUserName(username);
+
+        if (roles == null) {
+            return new Result(null, "未查询到数据", 200);
+        }
+
+        return new Result(roles, "查询成功", 200);
     }
 
     // role

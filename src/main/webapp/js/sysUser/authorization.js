@@ -47,6 +47,21 @@
 
     };
 
+    Authorization.prototype.getUserRoles = function (success, username) {
+        var url = Authorization.prototype.url + "permission/user/role";
+
+        $.post(url, {
+            username: username
+        }, function (result) {
+            if (result.status == 200) {
+                success(result);
+            } else {
+                alert(result.msg);
+            }
+        }, "json");
+
+    };
+
     Authorization.prototype.getUserList = function (success) {
         var url = Authorization.prototype.url + "permission/user/list";
 
@@ -74,6 +89,58 @@
         }, "json");
 
     };
+
+    Authorization.prototype.addUserRemark = function (success, username, markname) {
+        var url = Authorization.prototype.url + "permission/user/remark/add";
+
+        $.post(url, {
+                username: username,
+                markname: markname,
+                remark: "空",
+            }, function (result) {
+                if (result.status == 200) {
+                    success(result);
+                } else {
+                    alert(result.msg);
+                }
+            }, "json"
+        );
+
+    };
+
+    Authorization.prototype.altUserRemark = function (success, username, markname, remark, newMarkName) {
+        var url = Authorization.prototype.url + "permission/user/remark/alt";
+
+        $.post(url, {
+                username: username,
+                markname: markname,
+                remark: remark,
+                newname: newMarkName
+            }, function (result) {
+                if (result.status == 200) {
+                    success(result);
+                } else {
+                    alert(result.msg);
+                }
+            }, "json"
+        );
+    };
+
+    Authorization.prototype.delUserRemark = function (success, username, markname) {
+        var url = Authorization.prototype.url + "permission/user/remark/del";
+
+        $.post(url, {
+                username: username,
+                markname: markname,
+            }, function (result) {
+                if (result.status == 200) {
+                    success(result);
+                } else {
+                    alert(result.msg);
+                }
+            }, "json"
+        );
+    }
 
     Authorization.prototype.delUser = function (success, username) {
         var url = Authorization.prototype.url + "user/del";
@@ -133,6 +200,30 @@
             } else {
                 alert(result.msg);
             }
+        }, "json");
+
+    };
+
+    Authorization.prototype.bindUserRole = function (success, username, rolename) {
+        var url = Authorization.prototype.url + "permission/role/bind";
+
+        $.post(url, {
+            username: username,
+            rolename: rolename
+        }, function (result) {
+                success(result);
+        }, "json");
+
+    };
+
+    Authorization.prototype.unbindUserRole = function (success, username, rolename) {
+        var url = Authorization.prototype.url + "permission/role/unbind";
+
+        $.post(url, {
+            username: username,
+            rolename: rolename
+        }, function (result) {
+                success(result);
         }, "json");
 
     };

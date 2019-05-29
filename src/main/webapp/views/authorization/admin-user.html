@@ -55,7 +55,8 @@
 <!-- 修改按钮 -->
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="detail">备注</a>
-    <a class="layui-btn layui-btn-xs" lay-event="edit">密码</a>
+    <a class="layui-btn layui-btn-xs" lay-event="role">角色</a>
+    <a class="layui-btn layui-btn-xs" lay-event="password">密码</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 
@@ -64,7 +65,20 @@
 
     // 备注界面
     var user_remark = function (d) {
-        window.parent.xadmin.open("用户（" + d.name + "）备注", "/views/authorization/admin-user-remark.html?" + "username=" + d.name);
+        window.parent.xadmin.openEx("用户（" + d.name + "）备注", "/views/authorization/admin-user-remark.html?" + "username=" + d.name, {
+            end: function () {
+                location.reload();
+            }
+        });
+    }
+
+    // 角色界面
+    var user_role = function (d) {
+        window.parent.xadmin.openEx("用户（" + d.name + "）角色", "/views/authorization/admin-user-edit.html?" + "username=" + d.name, {
+            end: function () {
+                location.reload();
+            }
+        });
     }
 
     // 密码界面
@@ -130,8 +144,10 @@
                         }, data.name);
                         //location.reload(true);
                     });
-                } else if (layEvent === 'edit') { //密码
+                } else if (layEvent === 'password') { //密码
                     user_password(data);
+                } else if (layEvent === 'role') {
+                    user_role(data);
                 }
             });
         });

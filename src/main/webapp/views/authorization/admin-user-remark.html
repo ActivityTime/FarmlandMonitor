@@ -33,9 +33,15 @@
         <div class="layui-col-md12">
             <div class="layui-card">
 
+                <div class="layui-card-header">
+                    <button class="layui-btn excel-export user-remark-btn-add">
+                        <i class="layui-icon"></i>添加备注
+                    </button>
+                </div>
+
                 <div class="layui-card-body ">
                     <!-- 表格 -->
-                    <table class="layui-table layui-form" id="test"></table>
+                    <table class="layui-table layui-form" id="test" lay-filter="test"></table>
 
                 </div>
 
@@ -49,14 +55,21 @@
 <script src="/js/sysUser/authorization.js"></script>
 <script src="/js/utils/getQueryString.js"></script>
 
+<!-- 修改按钮 -->
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">备注名</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">备注内容</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
 <script>
     var datable;
 
-    var username = getQueryString("username");
 
     /* 数据表格渲染 */
     layui.use('table', function () {
         var table = layui.table;
+        var username = getQueryString("username");
 
         authorization.getUserRemarks(function (result) {
             table.render({
@@ -65,10 +78,68 @@
                 , cols: [[ //表头
                     {field: 'markname', title: '备注名', minWidth: 100, sort: true}
                     , {field: 'remarks', title: '备注内容', minWidth: 300, sort: true}
+                    , {title: '修改', minWidth: 100, sort: true, toolbar: '#barDemo'}
                 ]]
                 , data: result.data
             });
         }, username);
+
+        /* 添加备注 */
+        $(".user-remark-btn-add").click(function () {
+            layer.prompt({title: '请输入新备注名', formType: 0}, function (text, index) {
+                authorization.addUserRemark(function (result) {
+                    if (result.status == 200) {
+                        layer.prompt({title: '请输入备注内容', formType: 2}, function (text2, index) {
+                            authorization.altUserRemark(function (result) {
+                                alert(result.msg);
+                                if (result.status == 200) location.reload();
+                            }, username, text, text2, text);
+                            layer.close(index);
+                        });
+                    } else {
+                        alert(result.msg);
+                    }
+                }, username, text);
+                layer.close(index);
+            });
+        });
+
+        //监听工具条
+        table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if (layEvent === 'detail') { //备注名
+                layer.prompt({title: '请输入新备注名', formType: 0}, function (text, index) {
+                    authorization.altUserRemark(function (result) {
+                        alert(result.msg);
+                        if (result.status == 200) location.reload();
+                    }, username, data.markname, data.remarks, text);
+                    layer.close(index);
+                });
+            } else if (layEvent === 'del') { //删除
+                layer.confirm('真的删除行么', function (index) {
+                    authorization.delUserRemark(function () {
+                        obj.update({
+                            markname: "<span style='color: red;'>已删除</span>",
+                            remarks: "<span style='color: red;'>已删除</span>",
+                        });
+                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                    }, username, data.markname);
+                    layer.close(index);
+                    //location.reload(true);
+                });
+            } else if (layEvent === 'edit') { //备注内容
+                layer.prompt({title: '请输入新备注内容', formType: 2}, function (text, index) {
+                    authorization.altUserRemark(function (result) {
+                        alert(result.msg);
+                        if (result.status == 200) location.reload();
+                    }, username, data.markname, text, data.markname);
+                    layer.close(index);
+                });
+            }
+        });
     });
 </script>
 </html>
