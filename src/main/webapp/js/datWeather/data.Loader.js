@@ -6,6 +6,9 @@ datWeather.data.loader = {
             num: num0,
         }, function (result) {
             // console.log(result);
+            if (result["status"] == 500){
+                alert(result.msg)
+            }
             if (success != null)
                 success(result);
         }, "json")
@@ -18,6 +21,9 @@ datWeather.data.loader = {
             end: end,
         }, function (result) {
             // console.log(result);
+            if (result["status"] == 500){
+                alert(result.msg)
+            }
             if (success != null)
                 success(result);
         }, "json")
