@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,7 +32,7 @@ public class PermissionController {
     @RequestMapping("refuse")
     @ResponseBody
     Result noPermission() {
-        return new Result(null, "访问拒绝：您没有权限", 500);
+        return new Result(new ArrayList<>(), "访问拒绝：您没有权限", 500);
     }
 
     // user

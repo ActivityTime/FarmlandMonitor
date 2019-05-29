@@ -27,6 +27,7 @@
                 /user/logcheck = user
                 /user/logout = logout
 
+                /permission/refuse = user
                 <!-- 权限 -->
                 /datWeather/** = authc,perms[data]
                 /file/** = authc,perms[file]

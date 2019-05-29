@@ -18,7 +18,7 @@
             logSession: logSession
         }, function (result) {
             if (result.status == 200) {
-                eleLoginUname.text(result.data);
+                eleLoginUname.html(result.data);
             } else {
                 location.href = sysUser.url + "login.html";
             }
