@@ -6,7 +6,7 @@ public class PageInfoVO {
 //           "count": res.length, //解析数据长度
 //           "data": res //解析数据列表
     Integer code = 0;
-    String msg = "success";
+    String msg = "";
     Long count;
     Object data;
 
