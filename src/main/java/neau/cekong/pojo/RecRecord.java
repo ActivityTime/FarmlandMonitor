@@ -1,11 +1,14 @@
 package neau.cekong.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * rec_record
- * @author 
+ *
+ * @author
  */
 public class RecRecord implements Serializable {
     private Integer rec_id;
@@ -48,6 +51,7 @@ public class RecRecord implements Serializable {
         this.rec_name = rec_name;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public LocalDateTime getRec_time_start() {
         return rec_time_start;
     }
@@ -56,6 +60,7 @@ public class RecRecord implements Serializable {
         this.rec_time_start = rec_time_start;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public LocalDateTime getRec_time_end() {
         return rec_time_end;
     }
@@ -85,10 +90,10 @@ public class RecRecord implements Serializable {
         }
         RecRecord other = (RecRecord) that;
         return (this.getRec_id() == null ? other.getRec_id() == null : this.getRec_id().equals(other.getRec_id()))
-            && (this.getRec_name() == null ? other.getRec_name() == null : this.getRec_name().equals(other.getRec_name()))
-            && (this.getRec_time_start() == null ? other.getRec_time_start() == null : this.getRec_time_start().equals(other.getRec_time_start()))
-            && (this.getRec_time_end() == null ? other.getRec_time_end() == null : this.getRec_time_end().equals(other.getRec_time_end()))
-            && (this.getRec_character_name() == null ? other.getRec_character_name() == null : this.getRec_character_name().equals(other.getRec_character_name()));
+                && (this.getRec_name() == null ? other.getRec_name() == null : this.getRec_name().equals(other.getRec_name()))
+                && (this.getRec_time_start() == null ? other.getRec_time_start() == null : this.getRec_time_start().equals(other.getRec_time_start()))
+                && (this.getRec_time_end() == null ? other.getRec_time_end() == null : this.getRec_time_end().equals(other.getRec_time_end()))
+                && (this.getRec_character_name() == null ? other.getRec_character_name() == null : this.getRec_character_name().equals(other.getRec_character_name()));
     }
 
     @Override

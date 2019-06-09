@@ -1,6 +1,6 @@
 package neau.cekong.pojo;
 
-public class PageInfoVO {
+public class PageInfoVO<T> {
     //           "code": 0, //解析接口状态
 //           "msg": "", //解析提示文本
 //           "count": res.length, //解析数据长度
@@ -8,9 +8,9 @@ public class PageInfoVO {
     Integer code = 0;
     String msg = "";
     Long count;
-    Object data;
+    T data;
 
-    public PageInfoVO(Long count, Object data) {
+    public PageInfoVO(Long count, T data) {
         this.count = count;
         this.data = data;
     }
@@ -43,7 +43,17 @@ public class PageInfoVO {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "PageInfoVO{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", count=" + count +
+                ", data=" + data +
+                '}';
     }
 }

@@ -6,4 +6,7 @@ var urlGlobalConfig = {
     sysUser: function () {
         return urlGlobalConfig.global;
     },
+    landRecord: function () {
+        return urlGlobalConfig.global;
+    },
 };

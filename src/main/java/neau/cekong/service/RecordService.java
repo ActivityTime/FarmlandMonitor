@@ -9,6 +9,8 @@ import java.util.List;
 public interface RecordService {
     List<RecordVO> selAllRecord();
 
+    RecRecord findRecordByName(String name);
+
     Boolean insRecord(RecRecord record, List<RecRemark> remarks);
 
     Boolean updRecordByName(RecRecord record, String name);

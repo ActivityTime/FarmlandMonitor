@@ -3,15 +3,20 @@ package neau.cekong.service.impl;
 import neau.cekong.mapper.RecRecordMapper;
 import neau.cekong.mapper.RecRemarkMapper;
 import neau.cekong.pojo.*;
+import neau.cekong.service.RecordPageService;
 import neau.cekong.service.RecordService;
+import neau.cekong.service.RecordViewService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @Service
-public class RecordServiceImpl implements RecordService {
+public class RecordServiceImpl implements RecordService, RecordPageService, RecordViewService {
 
     @Resource
     RecRecordMapper recRecordMapper;
@@ -19,11 +24,17 @@ public class RecordServiceImpl implements RecordService {
     @Resource
     RecRemarkMapper recRemarkMapper;
 
+    DateTimeFormatter df0 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     @Override
     public List<RecordVO> selAllRecord() {
 
         List<RecRecord> recRecords = recRecordMapper.selectByExample(new RecRecordExample());
 
+        return buildRecordVO(recRecords);
+    }
+
+    List<RecordVO> buildRecordVO(List<RecRecord> recRecords) {
         List<RecordVO> records = new LinkedList<>();
         for (RecRecord recRecord : recRecords) {
             RecordVO recordVO = new RecordVO();
@@ -33,6 +44,8 @@ public class RecordServiceImpl implements RecordService {
             recRemarkExample.createCriteria().andRec_idEqualTo(recRecord.getRec_id());
             List<RecRemark> recRemarks = recRemarkMapper.selectByExample(recRemarkExample);
             recordVO.setRemarks(recRemarks);
+
+            records.add(recordVO);
         }
 
         return records;
@@ -161,7 +174,8 @@ public class RecordServiceImpl implements RecordService {
         return null;
     }
 
-    RecRecord findRecordByName(String name) {
+    @Override
+    public RecRecord findRecordByName(String name) {
         RecRecordExample recRecordExample = new RecRecordExample();
         recRecordExample.createCriteria().andRec_nameEqualTo(name);
         List<RecRecord> recRecords = recRecordMapper.selectByExample(recRecordExample);
@@ -189,4 +203,80 @@ public class RecordServiceImpl implements RecordService {
     }
 
 
+    @Override
+    public PageInfoVO<List<RecordVO>> selAllWithPage(Long page, Integer limit) {
+        RecRecordExample example = new RecRecordExample();
+        example.setOrderByClause("rec_time_start DESC");
+        long count = recRecordMapper.countByExample(example);
+        example.setOffset((page - 1) * limit);
+        example.setLimit(limit);
+        List<RecRecord> recRecords = recRecordMapper.selectByExample(example);
+        return new PageInfoVO<>(count, buildRecordVO(recRecords));
+    }
+
+    @Override
+    public Result insRecordWithRemarks(String name, String character, String start, String end, Map<String, String> remarks) {
+        RecRecord recRecord = new RecRecord();
+        recRecord.setRec_name(name);
+        recRecord.setRec_character_name(character);
+        recRecord.setRec_time_start(LocalDateTime.parse(start, df0));
+        recRecord.setRec_time_end(LocalDateTime.parse(end, df0));
+
+        Map<String, String> maps = remarks;
+
+        List<RecRemark> remarkList = new LinkedList<>();
+        for (Map.Entry<String, String> entry : maps.entrySet()) {
+            RecRemark recRemark = new RecRemark();
+            recRemark.setRec_remark_key(entry.getKey());
+            recRemark.setRec_remark_value(entry.getValue());
+            remarkList.add(recRemark);
+        }
+
+        Boolean b = insRecord(recRecord, remarkList);
+
+        if (b) {
+            return new Result(true, "创建成功", 200);
+        }
+        return new Result(b, "创建失败", 500);
+    }
+
+    @Override
+    public Result updRecord(String name, String character, String start, String end, String newName) {
+
+        RecRecord recRecord = new RecRecord();
+        if (newName != null)
+            recRecord.setRec_name(newName);
+        if (character != null)
+            recRecord.setRec_character_name(character);
+        if (start != null)
+            recRecord.setRec_time_start(LocalDateTime.parse(start, df0));
+        if (end != null)
+            recRecord.setRec_time_end(LocalDateTime.parse(end, df0));
+
+        Boolean b = updRecordByName(recRecord, name);
+
+        if (b) {
+            return new Result(true, "修改成功", 200);
+        }
+        return new Result(b, "修改失败", 500);
+    }
+
+    @Override
+    public Result updRemarkByRecName(String key, String value, String newKey, String recName) {
+
+        boolean a = true, b = true;
+        if (key == null || recName == null) return new Result(false, "修改失败: 参数缺失", 500);
+
+        if (newKey != null) {
+            a = updRemarkNameByRecName(key, newKey, recName);
+        }
+        if (value != null) {
+            b = updRemarkByRecName(key, value, recName);
+        }
+
+        if (a && b)
+            return new Result(true, "修改成功", 200);
+        else
+            return new Result(false, "修改失败", 500);
+    }
 }

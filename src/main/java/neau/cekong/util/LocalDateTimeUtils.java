@@ -95,5 +95,26 @@ public class LocalDateTimeUtils {
                 .withNano(999999999);
     }
 
+    //获取一年的开始时间，2017,1,1 00:00:00
+    public static LocalDateTime getYearStart(LocalDateTime time) {
+        return time
+                .withMonth(1)
+                .withDayOfMonth(1)
+                .withHour(0)
+                .withMinute(0)
+                .withSecond(0)
+                .withNano(0);
+    }
+
+    //获取一年的结束时间，2017,12,31 23:59:59.999999999
+    public static LocalDateTime getYearEnd(LocalDateTime time) {
+        return time
+                .withMonth(12)
+                .withDayOfMonth(31)
+                .withHour(23)
+                .withMinute(59)
+                .withSecond(59)
+                .withNano(999999999);
+    }
 }
 
