@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("record")
@@ -179,5 +180,25 @@ public class RecordController {
         PageInfoVO<RecordTable> recordTablePageInfoVO = recordTableService.selCuYearWithPage(page, limit);
 
         return new Result(recordTablePageInfoVO, "查询成功", 200);
+    }
+
+    @RequestMapping("table/title")
+    @ResponseBody
+    Result getTitle() {
+
+        Set<String> title = recordTableService.selTableTitle();
+
+        return new Result(title, "查询成功", 200);
+    }
+
+    @RequestMapping("table/row")
+    @ResponseBody
+    Result selRecTabRow(Integer recId) {
+
+        RecordTableRow recordTableRow = recordTableService.selById(recId);
+        if (recordTableRow != null)
+            return new Result(recordTableRow, "查询成功", 200);
+        else
+            return new Result(false, "查询失败", 500);
     }
 }

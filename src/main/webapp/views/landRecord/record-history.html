@@ -64,7 +64,7 @@
 
     // 备注界面
     var record_remark = function (d) {
-        window.parent.xadmin.openEx("记录（" + d.record.rec_name + "）备注", "/views/landRecord/record-remark.html?" + "recordName=" + d.record.rec_name, {
+        window.parent.xadmin.openEx("记录（" + d.recName + "）备注", "/views/landRecord/record-remark.html?" + "recordName=" + d.recName, {
             end: function () {
                 location.reload();
             }
@@ -73,21 +73,19 @@
 
     // 修改界面
     var record_edit = function (d) {
-        window.parent.xadmin.openEx("记录（" + d.record.rec_name + "）修改", "/views/landRecord/record-edit.html?" + "recordName=" + d.record.rec_name, {
+        window.parent.xadmin.openEx("记录（" + d.recName + "）修改", "/views/landRecord/record-edit.html?" + "recordName=" + d.recName + "&recordId=" + d.recId, {
             end: function () {
                 location.reload();
             }
         });
     }
 
-    // 新增用户
+    // 添加界面
     $(".user-btn-add").click(function () {
-        layer.prompt({title: '请输入新用户的用户名', formType: 0}, function (text, index) {
-            authorization.addUser(function (result) {
-                alert(result.msg);
-                if (result.status == 200) location.reload();
-            }, text, "neau");
-            layer.close(index);
+        window.parent.xadmin.openEx("记录添加", "/views/landRecord/record-edit.html?isInsert=true", {
+            end: function () {
+                location.reload();
+            }
         });
     });
 
@@ -96,61 +94,55 @@
         var table = layui.table;
 
         /* 绘制表格 */
-        table.render({
-            elem: '#test'
-            , page: true //开启分页
-            , cols: [[ //表头
-                {
-                    field: 'record.rec_id', title: 'ID', width: 80, sort: true, fixed: 'left', templet: function (d) {
-                        return d.record.rec_id;
+        landRecord.getTitle(function (result) {
+
+            // 设置表头
+            var cols = [{
+                title: "开始时间",
+                sort: true,
+                templet: function (data) {
+                    return data.timeStart[0] + "-"
+                        + (data.timeStart[1] > 9 ? data.timeStart[1] : ("0" + data.timeStart[1])) + "-"
+                        + (data.timeStart[2] > 9 ? data.timeStart[2] : ("0" + data.timeStart[2]));
+                }
+            }, {
+                title: "结束时间",
+                sort: true,
+                templet: function (data) {
+                    return data.timeEnd[0] + "-"
+                        + (data.timeEnd[1] > 9 ? data.timeEnd[1] : ("0" + data.timeEnd[1])) + "-"
+                        + (data.timeEnd[2] > 9 ? data.timeEnd[2] : ("0" + data.timeEnd[2]));
+                }
+            }];
+            result.data.forEach(function (v) {
+                cols.push({
+                    title: v,
+                    sort: true,
+                    templet: function (d) {
+                        return d.cols[v] == null ? "" : d.cols[v];
                     }
-                }
-                // , {
-                //     title: '记录名', width: 1, sort: true, templet: function (d) {
-                //         return d.record.rec_name;
-                //     }
-                // }
-                , {
-                    field: 'record.rec_character_name', title: '使用人', minWidth: 30, sort: true, templet: function (d) {
-                        return d.record.rec_character_name;
-                    }
-                }
-                , {
-                    field: 'record.rec_time_start', title: '起始时间', minWidth: 30, sort: true, templet: function (d) {
-                        return d.record.rec_time_start.substr(0, 10);
-                    }
-                }
-                , {
-                    field: 'record.rec_time_end', title: '结束时间', minWidth: 30, sort: true, templet: function (d) {
-                        return d.record.rec_time_end.substr(0, 10);
-                    }
-                }
-                , {
-                    title: '备注', minWidth: 300, sort: true, templet: function (d) {
-                        var content = "";
-                        d.remarks.forEach(function (v) {
-                            content += "<span>" + JSON.stringify(v.rec_remark_key) + "</span>";
-                            content += "：";
-                            content += "<span>" + JSON.stringify(v.rec_remark_value) + "</span>";
-                            content += "；";
-                        });
-                        return content;
-                    }
-                }
-                , {
-                    title: '修改', minWidth: 100, sort: true, toolbar: '#barDemo'
-                }
-            ]]
-            , url: landRecord.getRecordWithPageUrl()
-            , parseData: function (res) { //res 即为原始返回的数据
-                return {
-                    "code": 0, //解析接口状态
-                    "msg": "", //解析提示文本
-                    "count": res.data.count, //解析数据长度
-                    "data": res.data.data //解析数据列表
-                };
-            },
+                });
+            });
+            cols.push({
+                title: '修改', minWidth: 200, sort: true, toolbar: '#barDemo'
+            });
+
+            table.render({
+                elem: '#test'
+                , page: true //开启分页
+                , cols: [cols]
+                , url: landRecord.selRecordTablePageUrl() + "/all"
+                , parseData: function (res) { //res 即为原始返回的数据
+                    return {
+                        "code": 0, //解析接口状态
+                        "msg": "", //解析提示文本
+                        "count": res.data.count, //解析数据长度
+                        "data": res.data.data //解析数据列表
+                    };
+                },
+            });
         });
+
 
         //监听工具条
         table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
@@ -162,21 +154,20 @@
                 record_remark(data);
             } else if (layEvent === 'del') { //删除
                 layer.confirm('真的删除行么', function (index) {
-                    authorization.delUser(function () {
-                        obj.update({
-                            name: "<span style='color: red;'>已删除</span>",
-                            roles: "<span style='color: red;'>已删除</span>",
-                            remarks: "<span style='color: red;'>已删除</span>",
-                        });
+                    landRecord.delRecordTable(function () {
+                        // obj.update({
+                        //     name: "<span style='color: red;'>已删除</span>",
+                        //     roles: "<span style='color: red;'>已删除</span>",
+                        //     remarks: "<span style='color: red;'>已删除</span>",
+                        // });
                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                         layer.close(index);
-                    }, data.name);
+                        location.reload();
+                    }, data.recId);
                     //location.reload(true);
                 });
             } else if (layEvent === 'edit') { //修改
                 record_edit(data);
-            } else if (layEvent === 'role') {
-                user_role(data);
             }
         });
     });

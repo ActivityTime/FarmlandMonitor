@@ -18,13 +18,13 @@
     <![endif]--></head>
 
 <body>
-<div class="layui-fluid">
-    <div class="layui-row">
+<form class="layui-fluid layui-form" name="record-form" id="record-form">
+    <div class="layui-row" style="display: none">
         <div class="layui-form-item">
             <label class="layui-form-label">记录名</label>
             <div class="layui-input-block">
                 <input type="text" name="recordName" lay-verify="required" lay-reqtext="必填项" placeholder="请输入"
-                       autocomplete="off" class="layui-input" readonly="ture" disabled="ture">
+                       autocomplete="off" class="layui-input" readonly="ture" disabled="ture" value="#">
             </div>
         </div>
     </div>
@@ -50,14 +50,38 @@
     </div>
 
     <hr/>
-    123
+    <div id="record-cols">
+        <!-- 内容 -->
+    </div>
+    <hr/>
 
-</div>
+    <div class="layui-row">
+        <div class="layui-input-block">
+            <input type="submmit" name="record-btn-submit" id="record-btn-submit" class="layui-btn" value="提交"
+                   lay-submit="return false" lay-filter="record-btn-submit" readonly="true"/>
+        </div>
+    </div>
+
+</form>
 
 <script src="/js/urlGlobalConfig.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/landRecord/landRecord.js"></script>
 <script src="/js/utils/getQueryString.js"></script>
+<script src="/js/utils/String.replaceAll.js"></script>
+
+<!-- 项 模版 -->
+<script type="text/html" id="colDemo">
+    <div class="layui-row">
+        <div class="layui-form-item">
+            <label class="layui-form-label">{{name}}</label>
+            <div class="layui-input-block">
+                <input type="text" name="{{name}}" lay-verify="required" lay-reqtext="必填项" placeholder="请输入"
+                       autocomplete="off" class="layui-input" value="{{value}}">
+            </div>
+        </div>
+    </div>
+</script>
 
 <script>
     layui.use(['form', 'layedit', 'laydate'], function () {
@@ -67,24 +91,84 @@
             , laydate = layui.laydate;
 
         var recordName = getQueryString("recordName");
+        var recordId = getQueryString("recordId");
+        var isInsert = getQueryString("isInsert");
 
-        landRecord.selRecord(function (result) {
+        // 渲染表单 修改
+        var drawForm = function (result) {
             var data = result.data;
-            $("input[name=recordName]").val(data.rec_name);
-            $("input[name=recordCh]").val(data.rec_character_name);
-            $("input[name=start]").val(data.rec_time_start);
-            $("input[name=end]").val(data.rec_time_end);
-        },recordName);
+
+            $("input[name=start]").val(data.timeStart[0] + "-"
+                + (data.timeStart[1] > 9 ? data.timeStart[1] : ("0" + data.timeStart[1])) + "-"
+                + (data.timeStart[2] > 9 ? data.timeStart[2] : ("0" + data.timeStart[2])));
+            $("input[name=end]").val(data.timeEnd[0] + "-"
+                + (data.timeEnd[1] > 9 ? data.timeEnd[1] : ("0" + data.timeEnd[1])) + "-"
+                + (data.timeEnd[2] > 9 ? data.timeEnd[2] : ("0" + data.timeEnd[2])));
+
+            var cols = result.data.cols;
+            for (var name in cols) {
+                var innerhtml = $("#colDemo").html();
+                var value = cols[name] == null ? "" : cols[name];
+                innerhtml = innerhtml.replaceAll("{{name}}", name).replaceAll("{{value}}", value);
+                $("#record-cols").append($(innerhtml));
+            }
+
+        }
+        // 渲染表单 添加
+        var drawFormTitle = function (result) {
+            var cols = result.data;
+            for (var n in cols) {
+                var innerhtml = $("#colDemo").html();
+                innerhtml = innerhtml.replaceAll("{{name}}", cols[n]).replaceAll("{{value}}", "");
+                $("#record-cols").append($(innerhtml));
+            }
+
+        }
+        if (!isInsert)
+            landRecord.selRecordTableRow(drawForm, recordId);
+        else
+            landRecord.getTitle(drawFormTitle);
 
         // 日期渲染
         laydate.render({
-            type: 'datetime',
+            type: 'date',
             elem: $("input[name=start]")[0] //指定元素
         });
         laydate.render({
-            type: 'datetime',
+            type: 'date',
             elem: $("input[name=end]")[0] //指定元素
         });
+
+        // 提交动作
+        form.on('submit(record-btn-submit)', function () {
+            var cols = {};
+            $("#record-cols input").each(function (num, col) {
+                //   alert(JSON.stringify(col))
+                cols[col.name] = col.value;
+            });
+
+            if (!isInsert) {// 增 or 改
+                landRecord.altRecordTable(function (result) {
+                    if (result.status == 200) {
+                        alert(result.msg);
+                    }
+                    //   alert(JSON.stringify(cols))
+                }, recordId, JSON.stringify(cols), $("input[name=start]").val() + " 00:00:00", $("input[name=end]").val() + " 23:59:59");
+            } else {
+                landRecord.insRecordTable(function (result) {
+                    if (result.status == 200) {
+                        alert(result.msg);
+                        if (isInsert) {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        }
+                    }
+                    //   alert(JSON.stringify(cols))
+                }, $("input[name=start]").val() + " 00:00:00", $("input[name=end]").val() + " 23:59:59", JSON.stringify(cols));
+            }
+            return false;
+        });
+
     })
 </script>
 </body>

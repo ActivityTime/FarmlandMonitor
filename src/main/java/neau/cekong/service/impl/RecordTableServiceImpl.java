@@ -79,6 +79,12 @@ public class RecordTableServiceImpl implements RecordTableService {
     }
 
     @Override
+    public RecordTableRow selById(Integer recId) {
+        RecRecord recRecord = recRecordMapper.selectByPrimaryKey(recId);
+        return buildRecordTableRow(recRecord);
+    }
+
+    @Override
     public boolean insert(LocalDateTime start, LocalDateTime end, Map<String, String> cols) {
 
         // 插入记录
@@ -223,11 +229,20 @@ public class RecordTableServiceImpl implements RecordTableService {
         if (recColKeys == null) recColKeys = recColKeyMapper.selectByExample(new RecColKeyExample());
 
         for (RecRecord recRecord : recRecords) {
-            Map<String, Object> cols = selColsByRecId(recRecord.getRec_id(), recColKeys);
-            recordTable.add(new RecordTableRow(recRecord.getRec_time_start(), recRecord.getRec_time_end(), cols.keySet(), cols));
+            recordTable.add(buildRecordTableRow(recRecord, recColKeys));
         }
 
         return recordTable;
+    }
+
+    RecordTableRow buildRecordTableRow(RecRecord recRecord, List<RecColKey> recColKeys) {
+        if (recColKeys == null) recColKeys = recColKeyMapper.selectByExample(new RecColKeyExample());
+        Map<String, Object> cols = selColsByRecId(recRecord.getRec_id(), recColKeys);
+        return new RecordTableRow(recRecord.getRec_id(), recRecord.getRec_name(), recRecord.getRec_time_start(), recRecord.getRec_time_end(), cols.keySet(), cols);
+    }
+
+    RecordTableRow buildRecordTableRow(RecRecord recRecord) {
+        return buildRecordTableRow(recRecord, null);
     }
 
     //----------------------------------------------------

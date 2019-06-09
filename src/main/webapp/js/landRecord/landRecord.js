@@ -151,5 +151,127 @@
         }, "json");
     };
 
+    // ----------------------------------
+    LandRecord.prototype.insRecordTable = function (success, start, end, cols) {
+        var url = LandRecord.prototype.url + "record/table/ins";
+
+        $.post(url, {
+            start: start,
+            end: end,
+            cols: cols
+        }, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+
+    LandRecord.prototype.altRecordTable = function (success, recId, cols, start, end) {
+        var url = LandRecord.prototype.url + "record/table/alt";
+
+        var ele = {
+            recId: recId,
+            cols: cols
+        };
+
+        if (start != null) ele.start = start;
+        if (end != null) ele.end = end;
+
+        $.post(url, ele, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+
+    LandRecord.prototype.delRecordTable = function (success, recId) {
+        var url = LandRecord.prototype.url + "record/table/del";
+
+        var ele = {
+            recId: recId,
+        };
+
+        $.post(url, ele, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+
+    LandRecord.prototype.selRecordTablePageUrl = function () {
+        return LandRecord.prototype.url + "record/table/sel/page";
+    }
+
+    LandRecord.prototype.selRecordTablePage = function (success, page, limit, start, end) {
+        var url = LandRecord.prototype.selRecordTablePageUrl();
+
+        var ele = {
+            page: page,
+            limit: limit
+        };
+        if (start == null && end == null) url += "/all";
+        else if (start == true && end == null) url += "/cuYear";
+        else {
+            url += "/time";
+            ele.start = start;
+            ele.end = end;
+        }
+
+        $.post(url, ele, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+
+    LandRecord.prototype.selRecordTableRow = function (success, recId) {
+        var url = LandRecord.prototype.url + "record/table/row";
+
+        var ele = {
+            recId: recId,
+        };
+
+        $.post(url, ele, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+
+    LandRecord.prototype.getTitle = function (success) {
+        var url = LandRecord.prototype.url + "record/table/title";
+
+        $.post(url, {}, function (result) {
+            if (result.status == 200) {
+
+            } else {
+                alert(result.msg);
+            }
+
+            success(result);
+        }, "json");
+    };
+    // ----------------------------------
+
     window.landRecord = new LandRecord();
 }());

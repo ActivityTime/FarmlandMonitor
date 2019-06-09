@@ -2,6 +2,7 @@ package neau.cekong.service;
 
 import neau.cekong.pojo.PageInfoVO;
 import neau.cekong.pojo.RecordTable;
+import neau.cekong.pojo.RecordTableRow;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -16,13 +17,15 @@ public interface RecordTableService {
 
     PageInfoVO<RecordTable> selCuYearWithPage(Long page, Integer limit);
 
-    boolean insert(LocalDateTime start, LocalDateTime end, Map<String,String> cols);
+    RecordTableRow selById(Integer recId);
+
+    boolean insert(LocalDateTime start, LocalDateTime end, Map<String, String> cols);
 
     boolean delete(String recName);
 
     boolean delete(Integer recId);
 
-    boolean update(String recName, LocalDateTime start, LocalDateTime end, Map<String,String> cols);
+    boolean update(String recName, LocalDateTime start, LocalDateTime end, Map<String, String> cols);
 
-    boolean update(Integer recId, LocalDateTime start, LocalDateTime end, Map<String,String> cols);
+    boolean update(Integer recId, LocalDateTime start, LocalDateTime end, Map<String, String> cols);
 }
