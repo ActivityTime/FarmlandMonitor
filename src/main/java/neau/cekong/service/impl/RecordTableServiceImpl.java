@@ -209,6 +209,7 @@ public class RecordTableServiceImpl implements RecordTableService {
     RecRecordExample addRecRecordExamplePage(RecRecordExample recRecordExample, Long page, Integer limit) {
         recRecordExample.setLimit(limit);
         recRecordExample.setOffset((page - 1) * limit);
+        recRecordExample.setOrderByClause("rec_time_start");
         return recRecordExample;
     }
 

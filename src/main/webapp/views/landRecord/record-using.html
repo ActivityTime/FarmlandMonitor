@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div  id="record-list">
+    <div id="record-list">
 
     </div>
 
@@ -55,18 +55,33 @@
 
 <script>
 
+    // 修改界面
+    var record_edit = function (recName, recId) {
+        window.parent.xadmin.openEx("记录（" + recName + "）修改", "/views/landRecord/record-edit.html?" + "recordName=" + recName + "&recordId=" + recId, {
+            end: function () {
+                location.reload();
+            }
+        });
+    }
+
+    function timeFormat(array) {
+        return array[0] + "-"
+            + (array[1] > 9 ? array[1] : ("0" + array[1])) + "-"
+            + (array[2] > 9 ? array[2] : ("0" + array[2]));
+    }
+
     layui.use(['laypage', 'layer'], function () {
         var laypage = layui.laypage
             , layer = layui.layer;
         //完整功能
-        landRecord.getCuRecordWithPage(function (page_count) {
+        landRecord.selRecordTablePage(function (page_count) {
             laypage.render({
                 elem: 'record-page'
                 , count: page_count.data.count
                 , layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
                 , jump: function (obj, first) {
 
-                    landRecord.getCuRecordWithPage(function (result) {
+                    landRecord.selRecordTablePage(function (result) {
                         var data = result.data.data;
 
                         var content = "";
@@ -75,19 +90,21 @@
                             content += "<div class=\"layui-col-md12\">";
                             content += "<div class=\"layui-card\">";
                             content += "<div class=\"layui-card-header layui-bg-green\">";
-                            content += v.record.rec_name ;
-                            content += "<button style='float:right ; margin-top: 8px;' >修改</button>";
+                            content += "<span>" + "起止时间" + "：" + timeFormat(v.timeStart) + " 到 " + timeFormat(v.timeEnd) + "</span>";
+                            //                    content += v.recName;
+                            content += "<button style='float:right ; margin-top: 8px;' onclick=\"record_edit('" + v.recName + "','" + v.recId + "')\">修改</button>";
                             content += "</div>";
                             content += "<div class=\"layui-card-body \">";
 
-                            content += "<div>" + "使用人" + "：" + v.record.rec_character_name + "<div/>";
-                            content += "<div>" + "起止时间" + "：" + v.record.rec_time_start.substr(0, 10) + " 到 " + v.record.rec_time_end.substr(0, 10) + "<div/>";
+                            //                    content += "<div>" + "起止时间" + "：" + v.timeStart + " 到 " + v.timeEnd + "</div>";
 
-                            v.remarks.forEach(function (mark) {
-                                content += "<div>" + mark.rec_remark_key + "：" + mark.rec_remark_value + "<div/>";
-                            });
+                            // v.remarks.forEach(function (mark) {
+                            //     content += "<div>" + mark.rec_remark_key + "：" + mark.rec_remark_value + "<div/>";
+                            // });
+                            for (var name in v.cols) {
+                                content += "<div>" + name + "：" + v.cols[name] + "</div>";
+                            }
 
-                            content += "</div></div>";
                             content += "</div></div></div>";
                         });
 
@@ -95,11 +112,11 @@
 
                         obj.count = result.data.count;
 
-                    }, obj.limit, obj.curr);
+                    }, obj.curr, obj.limit, true);
 
                 }
             });
-        }, 10, 1);
+        }, 1, 10, true);
     });
 
 </script>
