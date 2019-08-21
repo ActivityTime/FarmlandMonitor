@@ -65,7 +65,7 @@ public class DownloadManager {
         return cachePathFile.getCanonicalPath();
     }
 
-    public String writeThread(String exPath, Consumer<FileDealingStat> writer) {
+    public Entry writeThread(String exPath, Consumer<FileDealingStat> writer) {
         String uuid = UUID.randomUUID().toString();
         // 创建文件路径描述
         File target = null;
@@ -82,16 +82,20 @@ public class DownloadManager {
         // 建立状态信息
         FileDealingStat fileDealingStat = new FileDealingStat(target);
         putFileDealingStat(uuid, fileDealingStat);
+        Entry fileDealingStatEntry = getFileDealingStatEntry(uuid);
 
         // 存在则不执行生成线程
-        if (target.exists()) {
+        if (fileDealingStatEntry.getExist()) {
             fileDealingStat.finish();
+            fileDealingStat.setNow(-1);// 标记已存在
+            fileDealingStat.setNum(-1);
         } else {
             // 启动线程执行
             new Thread(() -> writer.accept(fileDealingStat)).start();
         }
+
         // 返回键
-        return uuid;
+        return fileDealingStatEntry;
     }
 
     public FileDealingStat checkFileDealingStat(String uuid) {
@@ -104,6 +108,54 @@ public class DownloadManager {
 
     public void putFileDealingStat(String uuid, FileDealingStat fileDealingStat) {
         dealFilesMap.put(uuid, fileDealingStat);
+    }
+
+    public Entry getFileDealingStatEntry(String uuid) {
+        FileDealingStat fileDealingStat = dealFilesMap.get(uuid);
+        File target = fileDealingStat.getFile();
+
+        return new Entry(uuid, fileDealingStat, target.exists());
+    }
+
+    public class Entry {
+        String uuid;
+        FileDealingStat fileDealingStat;
+        Boolean exist;
+
+        public Entry(String uuid, FileDealingStat fileDealingStat, Boolean exist) {
+            this.uuid = uuid;
+            this.fileDealingStat = fileDealingStat;
+            this.exist = exist;
+        }
+
+        public Boolean getExist() {
+            return exist;
+        }
+
+        public void setExist(Boolean exist) {
+            this.exist = exist;
+        }
+
+        public Entry(String uuid, FileDealingStat fileDealingStat) {
+            this.uuid = uuid;
+            this.fileDealingStat = fileDealingStat;
+        }
+
+        public String getUuid() {
+            return uuid;
+        }
+
+        public void setUuid(String uuid) {
+            this.uuid = uuid;
+        }
+
+        public FileDealingStat getFileDealingStat() {
+            return fileDealingStat;
+        }
+
+        public void setFileDealingStat(FileDealingStat fileDealingStat) {
+            this.fileDealingStat = fileDealingStat;
+        }
     }
 
 }

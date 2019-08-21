@@ -190,7 +190,7 @@ public class DealExcelServiceImpl implements DealExcelService {
     @Override
     public Result makeExcelDatWeather(LocalDateTime start, LocalDateTime end) {
 
-        String uuid = downloadManager.writeThread("datWeather/" + "气象数据：" + start.format(df1) + "到" + end.format(df1) + ".xlsx",
+        DownloadManager.Entry entry = downloadManager.writeThread("datWeather/" + "气象数据：" + start.format(df1) + "到" + end.format(df1) + ".xlsx",
                 fileDealingStat -> {
                     // 获取excel
                     ExcelWriter writer = getExcelWriter(start, end, fileDealingStat);
@@ -209,7 +209,13 @@ public class DealExcelServiceImpl implements DealExcelService {
                     fileDealingStat.finish();// 100%
                 });
 
-        return new Result(uuid, "生成进行中", 200);
+        Result<String> result = new Result<>(entry.getUuid(), "生成进行中", 200);
+
+        if (entry.getExist()) {
+            result.setMsg("文件已存在");
+        }
+
+        return result;
     }
 
     @Override

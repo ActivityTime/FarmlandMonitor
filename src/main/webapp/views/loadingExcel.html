@@ -64,8 +64,8 @@
 <hr/>
 <br/>
 <!-- 日志 -->
-<div style="width: 100%;text-align:center;">
-    <textarea style="width: 85%; height: 10em" id="dataLog"></textarea>
+<div style="position:fixed;width: 100%;bottom:2em;left: 5em;">
+    <textarea style="width: 85%; height: 10em;resize:none;outline:none;" id="dataLog"></textarea>
 </div>
 
 <!-- 右下角计数器 -->
@@ -150,6 +150,15 @@
             }
         };
 
+        // log
+        var logBar = {
+            logBar: $("#dataLog"),
+            log: function (str) {
+                $("#dataLog").prepend(str);
+            },
+
+        };
+
         // 检查进度(def修改进度)
         function checkFile() {
             downloading.check(uuid, function (result) {
@@ -157,9 +166,10 @@
                 var perDouble = result.data.per * 100;
                 timeTracker.track(perDouble);
                 // 右下角计数
-                $("#itemNumBar").html(result.data.now + "/" + result.data.num);
+                $("#itemNumBar").html(result.data.num < 0 ? "已生成" : result.data.now + "/" + result.data.num);
                 // 日志
-                $("#dataLog").append(JSON.stringify(result));
+                if (!openWindow)
+                    logBar.log("（" + perDouble + "%）check：" + JSON.stringify(result) + "\n");
                 // 完成
                 if (result.data.num <= result.data.now && !openWindow) {
                     openWindow = true;
@@ -168,9 +178,12 @@
                     element.progress('progressBar01', '100%');
                     $(".loadingtext").html("<span>生</span><span>成</span><span>完</span><span>毕</span><span>！</span>");
                     $("title").html("生成完毕 可下载");
+                    logBar.log("--------------------\n文件生成完毕 准备下载...\n");
                     setTimeout(function () {
                         $("#downloadFile").attr("href", downloading.downFileUrl + "?uuid=" + uuid).html("_文件生成完毕，若未自动下载请点击此处_");
+                        logBar.log("--------------------\n若被拦截请手动执行 " + downloading.downFileUrl + "?uuid=" + uuid + "\n");
                     }, 3000);
+                    logBar.log("--------------------\n尝试弹出下载页...\n");
                     window.open(downloading.downFileUrl + "?uuid=" + uuid);
                 }
             });
@@ -181,9 +194,11 @@
             var start = getQueryString("start");
             var end = getQueryString("end");
             timeTracker.track(0.00);// 标记请求发起 小心初始化时间过短导致'无限'
+            logBar.log("--------------------\n发起文件生成请求...\n");
             downloading.make(start, end, function (result) {
                 uuid = result.data;// 记录文件id
                 timeTracker.track(0.8);// 设置定时器 标记请求成功
+                logBar.log("--------------------\n文件生成请求成功 " + result.msg + "...\n");
                 $("#itemNumBar").show();// 弹出右下角计数器
                 checkFile();// 查询进度
                 timer = setInterval(checkFile, 1500);

@@ -38,6 +38,7 @@ neau\cekong\pojo\RecRecordExample$Criteria.class
 neau\cekong\pojo\RecRemarkExample$Criterion.class
 neau\cekong\pojo\RecRemarkExample.class
 neau\cekong\mapper\RecRecordMapper.class
+neau\cekong\service\business\DownloadManager$Entry.class
 neau\cekong\pojo\SysFuncExample.class
 neau\cekong\aop\pointcut\UserRoleFuncServicePointCut.class
 neau\cekong\util\LocalDateTimeUtils.class
@@ -68,6 +69,7 @@ neau\cekong\pojo\RecRemark.class
 neau\cekong\pojo\RecColVal.class
 neau\cekong\pojo\UserLoginStatus.class
 neau\cekong\pojo\RecRecordExample$GeneratedCriteria.class
+neau\cekong\service\business\DownloadManager$1.class
 neau\cekong\pojo\DatWeather.class
 neau\cekong\service\impl\SysUserRemarkServiceImpl.class
 neau\cekong\service\DealExcelService.class
