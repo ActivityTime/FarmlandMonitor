@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="修改了个数据项图表名称为中文">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/DatWeatherVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/FileDealingStat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/downloading/downloading.js" afterDir="false" />
+    <list default="true" id="6ffb96eb-14a5-4792-91da-f5ee4ca62b71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/FileDownLoadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/controller/FileDownLoadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/pojo/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/DealExcelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/DealExcelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DealExcelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DealExcelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/myDB/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/myDB/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/sysUser/sysUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/sysUser/sysUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/urlGlobalConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/urlGlobalConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/datWeather/excel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/datWeather/excel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/loadingExcel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/loadingExcel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/neau/cekong/pojo/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,19 +33,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+            <state relative-caret-position="63">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#732#756#1" expanded="true" />
-                <element signature="e#2690#2691#0" expanded="true" />
-                <element signature="e#2735#2736#0" expanded="true" />
-                <element signature="e#2797#2798#0" expanded="true" />
-                <element signature="e#2846#2847#0" expanded="true" />
+                <element signature="e#985#986#0" expanded="true" />
+                <element signature="e#1000#1024#1" expanded="true" />
+                <element signature="e#1648#1649#0" expanded="true" />
+                <element signature="e#1684#1685#0" expanded="true" />
+                <element signature="e#1736#1737#0" expanded="true" />
+                <element signature="e#1782#1783#0" expanded="true" />
+                <element signature="e#2958#2959#0" expanded="true" />
+                <element signature="e#3003#3004#0" expanded="true" />
+                <element signature="e#3065#3066#0" expanded="true" />
+                <element signature="e#3114#3115#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://E:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/LinkedHashMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="509" column="5" selection-start-line="507" selection-start-column="4" selection-end-line="509" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -73,27 +69,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
               <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DealExcelServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2622">
-              <caret line="187" column="68" selection-start-line="187" selection-start-column="68" selection-end-line="187" selection-end-column="68" />
-              <folding>
-                <element signature="initializer##0;class#DealExcelServiceImpl#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -155,15 +130,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/loadingExcel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-877">
-              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            <state relative-caret-position="5">
+              <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="17576" column="40" selection-start-line="17576" selection-start-column="40" selection-end-line="17576" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -195,6 +183,7 @@
       <find>super</find>
       <find>Object</find>
       <find>dealFilesMap.put(</find>
+      <find>eldest</find>
     </findStrings>
     <replaceStrings>
       <replace>neau.cekong</replace>
@@ -263,9 +252,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/js/downloading/downloading.js" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/controller/FileDownLoadController.java" />
         <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/impl/DealExcelServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/loadingExcel.html" />
+        <option value="$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java" />
       </list>
     </option>
   </component>
@@ -551,16 +540,6 @@
               <item name="downloadingCache" type="462c0819:PsiDirectoryNode" />
               <item name="bmVhdQ==" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FarmlandMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FarmlandMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="tomcat" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-              <item name="downloadingCache" type="462c0819:PsiDirectoryNode" />
-              <item name="bmVhdQ==" type="462c0819:PsiDirectoryNode" />
-              <item name="datWeather" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -571,7 +550,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566350236127" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566364347957" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last.edited.regexp" value="Sample Text" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -897,7 +876,7 @@
       <workItem from="1565523479580" duration="23669000" />
       <workItem from="1565830677900" duration="6181000" />
       <workItem from="1566262886267" duration="47009000" />
-      <workItem from="1566349044735" duration="1622000" />
+      <workItem from="1566349044735" duration="13709000" />
     </task>
     <task id="LOCAL-00001" summary="新增功能：&#10;按时间查询&#10;数据插入&#10;登录页">
       <created>1553005372711</created>
@@ -1193,7 +1172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560786059873</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="优化了气象数据下载，避免了内存溢出，提高了用户体验">
+      <created>1566350746290</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1566350746290</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1229,7 +1215,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="574588000" />
+    <option name="totallyTimeSpent" value="586675000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1242,19 +1228,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.90569746" visible="true" weight="0.34182304" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9057301" visible="true" weight="0.20576407" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.09430256" side_tool="true" visible="true" weight="0.34182304" />
+      <window_info id="Web" order="7" sideWeight="0.09426987" side_tool="true" visible="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32844576" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.2536657" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.20674486" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1358,7 +1343,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="使用X-admin作为前端模版" />
     <MESSAGE value="生成了weather" />
     <MESSAGE value="修改了数据库" />
     <MESSAGE value="完成了数据图表的初步显示&#10;&#10;前端：&#10;自动图表绘制&#10;独立的url配置&#10;&#10;后端：&#10;前n条数据查询&#10;按日期进行查询" />
@@ -1383,27 +1367,14 @@
     <MESSAGE value="RecordTable CURD" />
     <MESSAGE value="RecordTable CURD 历史记录界面完成" />
     <MESSAGE value="修改了个数据项图表名称为中文" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了个数据项图表名称为中文" />
+    <MESSAGE value="优化了气象数据下载，避免了内存溢出，提高了用户体验" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化了气象数据下载，避免了内存溢出，提高了用户体验" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/Program Files/Maven/MylocalRepository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38-sources.jar!/com/mysql/jdbc/PreparedStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73549">
-          <caret line="3936" column="34" selection-start-line="3936" selection-start-column="34" selection-end-line="3936" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/sysUser/sysUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/datWeather/echarts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -1861,28 +1832,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#732#756#1" expanded="true" />
-            <element signature="e#2690#2691#0" expanded="true" />
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#2797#2798#0" expanded="true" />
-            <element signature="e#2846#2847#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="17576" column="40" selection-start-line="17576" selection-start-column="40" selection-end-line="17576" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/loadingExcel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-877">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        <state relative-caret-position="5">
+          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/LinkedHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="509" column="5" selection-start-line="507" selection-start-column="4" selection-end-line="509" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/neau/cekong/service/business/DownloadManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1000#1024#1" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
+            <element signature="e#1684#1685#0" expanded="true" />
+            <element signature="e#1736#1737#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#2958#2959#0" expanded="true" />
+            <element signature="e#3003#3004#0" expanded="true" />
+            <element signature="e#3065#3066#0" expanded="true" />
+            <element signature="e#3114#3115#0" expanded="true" />
           </folding>
         </state>
       </provider>

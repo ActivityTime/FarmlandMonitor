@@ -19,7 +19,17 @@ public class DownloadManager {
 
     private File cachePathFile;
 
-    private Map<String, FileDealingStat> dealFilesMap = new LinkedHashMap<>();
+    private Map<String, FileDealingStat> dealFilesMap = new LinkedHashMap<String, FileDealingStat>() {
+        /**
+         * 控制map大小(插入时执行)
+         * @param eldest 最早元素
+         * @return 是否移除最早元素
+         */
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<String, FileDealingStat> eldest) {
+            return size() > mapMaxSize;
+        }
+    };
 
     @Value("${download.mapMaxSize}")
     private int mapMaxSize;
@@ -94,10 +104,6 @@ public class DownloadManager {
 
     public void putFileDealingStat(String uuid, FileDealingStat fileDealingStat) {
         dealFilesMap.put(uuid, fileDealingStat);
-        while (dealFilesMap.size() > mapMaxSize) {
-            LinkedList dealFilesMap = (LinkedList) this.dealFilesMap;
-            dealFilesMap.removeFirst();
-        }
     }
 
 }

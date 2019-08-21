@@ -29,7 +29,7 @@
     <script src="/follow.js" type="text/javascript"></script>
 </div>
 
-
+<!-- 顶部动画 -->
 <div id="ajaxloader2">
     <div class="outer"></div>
     <div class="inner"></div>
@@ -48,6 +48,7 @@
 <br/>
 <hr/>
 <br/>
+<!-- 进度条 -->
 <div class="layui-progress layui-progress-big" lay-showPercent="yes" style="width: 90%; left: 5%"
      lay-filter="progressBar01">
     <div class="layui-progress-bar" lay-percent="0%"></div>
@@ -55,9 +56,22 @@
 <br/>
 <hr/>
 <br/>
+<!-- 下载按钮 -->
 <div style="font-size: x-large;text-align:center">
     <a id="downloadFile" style="font-size: x-large;text-align:center" target="_blank"></a>
 </div>
+<br/>
+<hr/>
+<br/>
+<!-- 日志 -->
+<div style="width: 100%;text-align:center;">
+    <textarea style="width: 85%; height: 10em" id="dataLog"></textarea>
+</div>
+
+<!-- 右下角计数器 -->
+<button type="button" class="layui-btn layui-anim layui-anim-up" id="itemNumBar"
+        style="position: fixed; bottom: 2em; right: 2em; width: auto;background: #8D8D8D;display: none">文件生成中
+</button>
 
 <script src='/js/jquery.min.js'></script>
 <script src="/lib/pure-css3-colorful-loading/js/index.js"></script>
@@ -72,44 +86,10 @@
         var uuid = "";
         var timer;
         var openWindow = false;
-        // 发起文件请求
-        (function requestFile() {
-            var start = getQueryString("start");
-            var end = getQueryString("end");
-
-            downloading.make(start, end, function (result) {
-                element.progress('progressBar01', '1.00%');
-                uuid = result.data;
-                checkFile();// 设置定时器
-                timer = setInterval(checkFile, 1500);
-                timeTracker.track(1.11);// 更新进度
-            });
-        }());
-
-        // 检查进度
-        function checkFile() {
-            downloading.check(uuid, function (result) {
-                // 设置进度条
-                var perDouble = result.data.per * 100;
-                timeTracker.track(perDouble);
-                // 完成
-                if (result.data.num <= result.data.now && !openWindow) {
-                    openWindow = true;
-                    clearInterval(timer);
-                    timeTracker.timerStop();
-                    element.progress('progressBar01', '100%');
-                    $(".loadingtext").html("<span>生</span><span>成</span><span>完</span><span>毕</span><span>！</span>");
-                    setTimeout(function () {
-                        $("#downloadFile").attr("href", downloading.downFileUrl + "?uuid=" + uuid).html("_文件生成完毕，若未自动下载请点击此处_");
-                    }, 3000);
-                    window.open(downloading.downFileUrl + "?uuid=" + uuid);
-                }
-            });
-        }
 
         // 预测进度
         var timeTracker = {
-            perDouble: 1.00,
+            perDouble: 0.01,
             lastTime: new Date().getTime(),
             speeds: 0.00,
             track: function (perDouble0) {
@@ -123,30 +103,40 @@
                 this.timerRestart();
             },
             timeOut: 100,//毫秒
-            countDown: 15, // 次
-            countDownDef: 20,
+            countDown: 20, // 次
+            countDownDef: 25,
             timer: null,
-            timerStart: function () {
-                this.countDown = this.countDownDef;
+            interval: function () {
                 var tracker = this;
+                if (parseFloat(tracker.speeds) < 0) {
+                    tracker.speeds = 0;
+                }
+                if (tracker.perDouble > 99.98888888) {
+                    tracker.speeds = 0.000000001;
+                }
+                tracker.perDouble = parseFloat(tracker.perDouble) + parseFloat(tracker.speeds);
+
+                if (tracker.perDouble > 99.99989999) {
+                    tracker.speeds = 0.000000000;
+                }
+                if (tracker.perDouble > 100) {
+                    tracker.perDouble = 100;
+                }
+                element.progress('progressBar01', (tracker.perDouble + "").substring(0, 7) + "%");
+                tracker.countDown--;
+                tracker.speeds = tracker.speeds - tracker.speeds * (1 / tracker.countDownDef);
+                if (tracker.countDown <= 0) {
+                    tracker.countDown = tracker.countDownDef;
+                    clearInterval(tracker.timer);
+                }
+            },
+            timerStart: function () {
+                var tracker = this;
+                this.countDown = this.countDownDef;
+                if (this.timer != null)
+                    clearInterval(this.timer);
                 this.timer = setInterval(function () {
-                    if (parseFloat(tracker.speeds) < 0) {
-                        tracker.speeds = 0;
-                    }
-                    if (tracker.perDouble > 99.98888888) {
-                        tracker.speeds = 0.000000001;
-                    }
-                    tracker.perDouble = parseFloat(tracker.perDouble) + parseFloat(tracker.speeds);
-                    if (tracker.perDouble > 99.99989999) {
-                        tracker.speeds = 0.000000000;
-                    }
-                    element.progress('progressBar01', (tracker.perDouble + "").substring(0, 7) + "%");
-                    tracker.countDown--;
-                    tracker.speeds = tracker.speeds - tracker.speeds * (1 / tracker.countDownDef);
-                    if (tracker.countDown <= 0) {
-                        tracker.countDown = tracker.countDownDef;
-                        clearInterval(tracker.timer);
-                    }
+                    tracker.interval();
                 }, this.timeOut);
             },
             timerRestart: function () {
@@ -159,6 +149,48 @@
                 clearInterval(this.timer);
             }
         };
+
+        // 检查进度(def修改进度)
+        function checkFile() {
+            downloading.check(uuid, function (result) {
+                // 设置进度条
+                var perDouble = result.data.per * 100;
+                timeTracker.track(perDouble);
+                // 右下角计数
+                $("#itemNumBar").html(result.data.now + "/" + result.data.num);
+                // 日志
+                $("#dataLog").append(JSON.stringify(result));
+                // 完成
+                if (result.data.num <= result.data.now && !openWindow) {
+                    openWindow = true;
+                    clearInterval(timer);
+                    timeTracker.timerStop();
+                    element.progress('progressBar01', '100%');
+                    $(".loadingtext").html("<span>生</span><span>成</span><span>完</span><span>毕</span><span>！</span>");
+                    $("title").html("生成完毕 可下载");
+                    setTimeout(function () {
+                        $("#downloadFile").attr("href", downloading.downFileUrl + "?uuid=" + uuid).html("_文件生成完毕，若未自动下载请点击此处_");
+                    }, 3000);
+                    window.open(downloading.downFileUrl + "?uuid=" + uuid);
+                }
+            });
+        }
+
+        // 发起文件请求
+        (function requestFile() {
+            var start = getQueryString("start");
+            var end = getQueryString("end");
+            timeTracker.track(0.00);// 标记请求发起 小心初始化时间过短导致'无限'
+            downloading.make(start, end, function (result) {
+                uuid = result.data;// 记录文件id
+                timeTracker.track(0.8);// 设置定时器 标记请求成功
+                $("#itemNumBar").show();// 弹出右下角计数器
+                checkFile();// 查询进度
+                timer = setInterval(checkFile, 1500);
+                //timeTracker.track(1.11);// 更新进度
+            });
+        }());
+
     });
 
 
