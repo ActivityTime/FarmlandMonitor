@@ -22,7 +22,7 @@
         <jackson-version>2.8.5</jackson-version>
         <commons-fileupload-version>1.3.1</commons-fileupload-version>
         <poi-version>3.17</poi-version>
-        <hutool-version>4.5.9</hutool-version>
+        <hutool-version>4.6.2</hutool-version>
         <version.shiro>1.2.2</version.shiro>
         <gson-version>2.8.2</gson-version>
     </properties>
@@ -216,7 +216,8 @@
                     <!-- 热部署 -->
                     <username>neau</username>
                     <password>neau</password>
-                    <url>http://202.118.163.18:8092/manager/text</url>
+                    <!-- url>http://202.118.163.18:8092/manager/text</url -->
+                    <url>http://landm.actim.top:8082/manager/text</url>
                 </configuration>
             </plugin>
             <!-- 发布时跳过单元测试 -->

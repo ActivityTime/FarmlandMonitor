@@ -36,6 +36,7 @@
                 layer.msg(result.msg, function () {
                     location.href = urlGlobalConfig.global + 'index.html';
                 });
+                location.href = urlGlobalConfig.global + 'index.html';
             } else {
                 layer.msg(result.msg, function () {
 

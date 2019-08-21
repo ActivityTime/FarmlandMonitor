@@ -9,4 +9,7 @@ var urlGlobalConfig = {
     landRecord: function () {
         return urlGlobalConfig.global;
     },
+    downloading: function () {
+        return urlGlobalConfig.global;
+    },
 };

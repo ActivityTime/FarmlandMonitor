@@ -1,14 +1,14 @@
 package neau.cekong.pojo;
 
-public class Result {
-    Object data;
+public class Result<T> {
+    T data;
     String msg;
     int status;
 
     public Result() {
     }
 
-    public Result(Object data, String msg, int status) {
+    public Result(T data, String msg, int status) {
         this.data = data;
         this.msg = msg;
         this.status = status;
@@ -30,11 +30,11 @@ public class Result {
         this.status = status;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

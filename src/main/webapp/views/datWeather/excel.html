@@ -66,7 +66,7 @@
                     <!-- button class="layui-btn layui-btn-danger" onclick="delAll()">
                         <i class="layui-icon"></i>批量删除
                     </button -->
-                    <button class="layui-btn excel-export" >
+                    <button class="layui-btn excel-export">
                         <i class="layui-icon"></i>导出数据
                     </button>
                 </div>
@@ -86,6 +86,7 @@
 <script src="/js/datWeather/datWeather.js"></script>
 <script src="/js/datWeather/echarts.config.js"></script>
 <script src="/js/datWeather/data.Loader.js"></script>
+<script src="/js/downloading/downloading.js"></script>
 <script>
     (function () {
         /* 日期选择插件 */
@@ -150,6 +151,9 @@
                         start: $("#start").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
                         end: $("#end").val().replaceAll("-", "").replaceAll(" ", "").replaceAll(":", ""),
                     },
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    },
                     parseData: function (res) { //res 即为原始返回的数据
                         return {
                             "code": 0, //解析接口状态
@@ -163,25 +167,25 @@
 
             /* 导出数据表格 */
             $(".excel-export").click(function () {
-                layui.use('layer', function(){
+                layui.use('layer', function () {
                     var layer = layui.layer;
 
-                    var start= $("#start").val();
-                    var end= $("#end").val();
+                    var start = $("#start").val();
+                    var end = $("#end").val();
 
-                    if (start == "" || end == ""){
+                    if (start == "" || end == "") {
                         layer.msg("日期不能为空");
-                    }else {
-                        window.open(datWeather.url + 'file/datWeather?start=' + $("#start").val() + '&end=' + $("#end").val());
+                    } else {
+                        window.open('/views/loadingExcel.html?start=' + $("#start").val() + '&end=' + $("#end").val());
 
                         layer.alert("请求已提交，处理中\n若时间范围较大请耐心等候", {
                             skin: 'layui-layer-molv' //样式类名
-                            ,closeBtn: 0
+                            , closeBtn: 0
                         });
 
                     }
 
-                //    layer.load(0);
+                    //    layer.load(0);
                 });
             });
         });

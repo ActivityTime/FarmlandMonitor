@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>纯CSS3五彩Loading加载动画DEMO演示</title>
-
-
-
+    <title>正在生成文件。。。</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="/lib/pure-css3-colorful-loading/css/style.css">
-
-
 </head>
 
 <body>
@@ -22,14 +30,12 @@
 </div>
 
 
-
 <div id="ajaxloader2">
     <div class="outer"></div>
     <div class="inner"></div>
 </div>
 
-
-
+<br/>
 <h1 class="loadingtext">
     <span>正</span>
     <span>在</span>
@@ -39,15 +45,123 @@
     <span>.</span>
     <span>.</span>
 </h1>
+<br/>
+<hr/>
+<br/>
+<div class="layui-progress layui-progress-big" lay-showPercent="yes" style="width: 90%; left: 5%"
+     lay-filter="progressBar01">
+    <div class="layui-progress-bar" lay-percent="0%"></div>
+</div>
+<br/>
+<hr/>
+<br/>
+<div style="font-size: x-large;text-align:center">
+    <a id="downloadFile" style="font-size: x-large;text-align:center" target="_blank"></a>
+</div>
+
 <script src='/js/jquery.min.js'></script>
-
-
-
-<script  src="/lib/pure-css3-colorful-loading/js/index.js"></script>
-
-
-
-
+<script src="/lib/pure-css3-colorful-loading/js/index.js"></script>
 </body>
+<script src="/js/urlGlobalConfig.js"></script>
+<script src="/js/utils/getQueryString.js"></script>
+<script src="/js/downloading/downloading.js"></script>
+<script>
+    //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+        var uuid = "";
+        var timer;
+        var openWindow = false;
+        // 发起文件请求
+        (function requestFile() {
+            var start = getQueryString("start");
+            var end = getQueryString("end");
+
+            downloading.make(start, end, function (result) {
+                element.progress('progressBar01', '1.00%');
+                uuid = result.data;
+                checkFile();// 设置定时器
+                timer = setInterval(checkFile, 1500);
+                timeTracker.track(1.11);// 更新进度
+            });
+        }());
+
+        // 检查进度
+        function checkFile() {
+            downloading.check(uuid, function (result) {
+                // 设置进度条
+                var perDouble = result.data.per * 100;
+                timeTracker.track(perDouble);
+                // 完成
+                if (result.data.num <= result.data.now && !openWindow) {
+                    openWindow = true;
+                    clearInterval(timer);
+                    timeTracker.timerStop();
+                    element.progress('progressBar01', '100%');
+                    $(".loadingtext").html("<span>生</span><span>成</span><span>完</span><span>毕</span><span>！</span>");
+                    setTimeout(function () {
+                        $("#downloadFile").attr("href", downloading.downFileUrl + "?uuid=" + uuid).html("_文件生成完毕，若未自动下载请点击此处_");
+                    }, 3000);
+                    window.open(downloading.downFileUrl + "?uuid=" + uuid);
+                }
+            });
+        }
+
+        // 预测进度
+        var timeTracker = {
+            perDouble: 1.00,
+            lastTime: new Date().getTime(),
+            speeds: 0.00,
+            track: function (perDouble0) {
+                var perDouble = parseFloat(perDouble0);
+                var nowTime = new Date().getTime();
+                var space = nowTime - this.lastTime;
+                this.lastTime = nowTime;
+                this.speeds = (perDouble - this.perDouble) / (space / this.timeOut) / 3 * 2; //每this.timeOut毫秒
+                if (this.perDouble < perDouble)
+                    this.perDouble = perDouble;
+                this.timerRestart();
+            },
+            timeOut: 100,//毫秒
+            countDown: 15, // 次
+            countDownDef: 20,
+            timer: null,
+            timerStart: function () {
+                this.countDown = this.countDownDef;
+                var tracker = this;
+                this.timer = setInterval(function () {
+                    if (parseFloat(tracker.speeds) < 0) {
+                        tracker.speeds = 0;
+                    }
+                    if (tracker.perDouble > 99.98888888) {
+                        tracker.speeds = 0.000000001;
+                    }
+                    tracker.perDouble = parseFloat(tracker.perDouble) + parseFloat(tracker.speeds);
+                    if (tracker.perDouble > 99.99989999) {
+                        tracker.speeds = 0.000000000;
+                    }
+                    element.progress('progressBar01', (tracker.perDouble + "").substring(0, 7) + "%");
+                    tracker.countDown--;
+                    tracker.speeds = tracker.speeds - tracker.speeds * (1 / tracker.countDownDef);
+                    if (tracker.countDown <= 0) {
+                        tracker.countDown = tracker.countDownDef;
+                        clearInterval(tracker.timer);
+                    }
+                }, this.timeOut);
+            },
+            timerRestart: function () {
+                this.countDown = this.countDownDef;
+                if (this.timer != null)
+                    clearInterval(this.timer);
+                this.timerStart();
+            },
+            timerStop: function () {
+                clearInterval(this.timer);
+            }
+        };
+    });
+
+
+</script>
 
 </html>

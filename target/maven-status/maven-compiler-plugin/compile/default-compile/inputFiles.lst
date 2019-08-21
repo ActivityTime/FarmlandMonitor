@@ -21,9 +21,11 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\PageInfoVO.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\controller\FileDownLoadController.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\util\UUIDUtils.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\DatWeatherVO.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysFuncExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\shiro\UserRealm.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysFunc.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\business\FileDealingStat.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\DatWeatherExample.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\DealExcelServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\controller\RecordController.java
@@ -66,6 +68,7 @@ E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\aop\aspe
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\RecRemark.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\impl\RecordTableServiceImpl.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\SysFuncRoleRExample.java
+E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\service\business\DownloadManager.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\mapper\RecColValMapper.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\mapper\SysUserRemarkMapper.java
 E:\a\MyFilesNoCh\IDEAprojects\FarmlandMonitor\src\main\java\neau\cekong\pojo\RecRecordExample.java
