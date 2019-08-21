@@ -40,7 +40,7 @@ public class DownloadManager {
         String pathStr = null;
 
         if (path.startsWith("tomcat")) {
-            pathStr = System.getProperty("catalina.home") + "\\" + path.substring(7);
+            pathStr = System.getProperty("catalina.home") + "/" + path.substring(7);
         } else if (path.startsWith("classpath")) {
             cachePathFile = new ClassPathResource(path.substring(10)).getFile();// 未测试
         } else {
