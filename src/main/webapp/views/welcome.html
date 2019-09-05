@@ -32,9 +32,9 @@
         </div>
         <div class="layui-col-md12">
             <div class="layui-card">
-                <div class="layui-card-header">数据统计</div>
+                <div class="layui-card-header"><span>最新数据（部分）</span><span style="position: absolute; right: 1em"><span>统计时间:</span><span id="data_board_time">---</span></span></div>
                 <div class="layui-card-body ">
-                    <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+                    <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog" id="data_board">
                         <li class="layui-col-md2 layui-col-xs6">
                             <a href="javascript:;" class="x-admin-backlog-body">
                                 <h3>---</h3>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="layui-col-sm6 layui-col-md3">
+        <!-- div class="layui-col-sm6 layui-col-md3">
             <div class="layui-card">
                 <div class="layui-card-header">下载
                     <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span></div>
@@ -132,7 +132,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div -->
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-header">系统信息</div>
@@ -197,7 +197,9 @@
         </div>
         <style id="welcome_style"></style>
         <div class="layui-col-md12">
-            <blockquote class="layui-elem-quote layui-quote-nm">前端插件：layui,百度Echarts,jquery,x-admin，本系统由【东北农业大学工程学院测控研究室】提供技术支持。</blockquote>
+            <blockquote class="layui-elem-quote layui-quote-nm">
+                前端插件：layui,百度Echarts,jquery,x-admin，本系统由【东北农业大学工程学院测控研究室】提供技术支持。
+            </blockquote>
         </div>
     </div>
 </div>
@@ -208,10 +210,51 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.cookie.js"></script>
 <script src="/js/sysUser/sysUser.js"></script>
+<script src="/js/urlGlobalConfig.js"></script>
+<script src="/js/datWeather/datWeather.js"></script>
+<script src="/js/datWeather/data.Loader.js"></script>
+<script src="/js/datWeather/echarts.config.js"></script>
+<!-- 欢迎语 初始化 -->
 <script>
     sysUser.loginCheck($("#welcome-title"));
     $("#welcome-time").text((function () {
         return new Date();
     }()));
+</script>
+<!-- 示例数据块 -->
+<script type="text/html" id="data_board_text">
+    <li class="layui-col-md2 layui-col-xs6">
+        <a href="javascript:;" class="x-admin-backlog-body">
+            <h3>${title}</h3>
+            <p>
+                <cite>${data} ${unit}</cite></p>
+        </a>
+    </li>
+</script>
+<script>
+    !(function () {
+        //--------------------------------------------------------
+        var dataBoardText = $("#data_board_text").html();
+        //  console.log(dataBoardText);
+        var dataBoardKeys = datWeather.echarts.config.chartsFormatJson;
+        var dataBoardNums = 6;
+        var dataBoard = $("#data_board");
+
+        datWeather.data.loader.topX(1, function (result) {
+            // console.log(result)
+            dataBoard.html("")
+            $("#data_board_time").html(result[0].retime);
+            for (var i = 0; i < dataBoardNums; i++) {
+                var dataBoardKey = dataBoardKeys[i];
+                var title = dataBoardKey.nick;
+                var unit = dataBoardKey.unit;
+                var data = result[0][dataBoardKey.dv[0]];
+                var reText = dataBoardText.replace("${title}", title).replace("${data}", data).replace("${unit}", unit);
+                var newli = $(reText);
+                dataBoard.append(newli);
+            }
+        })
+        //-------------------------------------------------------
+    }())
 </script>
 </html>
