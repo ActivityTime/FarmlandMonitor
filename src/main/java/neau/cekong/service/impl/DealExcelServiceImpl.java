@@ -34,14 +34,14 @@ public class DealExcelServiceImpl implements DealExcelService {
     @Autowired
     DownloadManager downloadManager;
 
-    Long limit = 500L;// 分页查询宽度
+    private Long limit = 500L;// 分页查询宽度
 
-    Map<String, String> title = new LinkedHashMap<>();// 表头
+    private Map<String, String> title = new LinkedHashMap<>();// 表头
 
     DateTimeFormatter df0 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    int firstColumnWidth = 19;
-    int otherColumnWidth = 14;
+    private int firstColumnWidth = 19;
+    private int otherColumnWidth = 14;
 
     {
 //        TA(℃)	 RH(%)	 PPM(ppm)	 WD(Deg)	 PRESS(hPa)	 DEPTH(mm)	 PAR(umol/㎡·S)	 RA(W/㎡)	 UV3(W/㎡)	 NET_R(W/㎡)	 TS1(℃)	 TS2(℃)	 TS3(℃)	 TS4(℃)	 TS5(℃)	 MS1(%)	 MS2(%)	 MS3(%)	 MS4(%)	 MS5(%)	 WS(m/s)	 RAIN(mm)

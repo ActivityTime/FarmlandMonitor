@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.*;
+import java.util.Base64;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 @Service
@@ -66,32 +69,19 @@ public class DownloadManager {
     }
 
     public Entry writeThread(String exPath, Consumer<FileDealingStat> writer) {
-        String uuid = UUID.randomUUID().toString();
+
         // 创建文件路径描述
-        File target = null;
-        try {
-            target = new File(
-                    cachePathFile.getAbsolutePath() + "/"
-                            + Base64.getEncoder()// 包含Base64用户名的路径
-                            .encodeToString(SecurityUtils.getSubject().getPrincipal().toString().getBytes("UTF-8")
-                            ) + "/" + exPath);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        File target = mkFileWithUsername(exPath);
 
         // 建立状态信息
-        FileDealingStat fileDealingStat = new FileDealingStat(target);
-        putFileDealingStat(uuid, fileDealingStat);
-        Entry fileDealingStatEntry = getFileDealingStatEntry(uuid);
+        Entry fileDealingStatEntry = buildFileDealingStatEntry(target);
 
         // 存在则不执行生成线程
         if (fileDealingStatEntry.getExist()) {
-            fileDealingStat.finish();
-            fileDealingStat.setNow(-1);// 标记已存在
-            fileDealingStat.setNum(-1);
+            System.out.println();
         } else {
             // 启动线程执行
-            new Thread(() -> writer.accept(fileDealingStat)).start();
+            new Thread(() -> writer.accept(fileDealingStatEntry.fileDealingStat)).start();
         }
 
         // 返回键
@@ -106,15 +96,42 @@ public class DownloadManager {
         return checkFileDealingStat(uuid);
     }
 
+    public File mkFileWithUsername(String exPath){
+        File target = null;
+        try {
+            target = new File(
+                    cachePathFile.getAbsolutePath() + "/"
+                            + Base64.getEncoder()// 包含Base64用户名的路径
+                            .encodeToString(SecurityUtils.getSubject().getPrincipal().toString().getBytes("UTF-8")
+                            ) + "/" + exPath);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return target;
+    }
+
     public void putFileDealingStat(String uuid, FileDealingStat fileDealingStat) {
         dealFilesMap.put(uuid, fileDealingStat);
     }
 
     public Entry getFileDealingStatEntry(String uuid) {
         FileDealingStat fileDealingStat = dealFilesMap.get(uuid);
+        if (fileDealingStat == null) return null;
         File target = fileDealingStat.getFile();
-
+        if (target.exists()) {
+            fileDealingStat.finish();
+            fileDealingStat.setNow(-1);// 标记已存在
+            fileDealingStat.setNum(-1);
+        }
         return new Entry(uuid, fileDealingStat, target.exists());
+    }
+
+    public Entry buildFileDealingStatEntry(File target) {
+        String uuid = UUID.randomUUID().toString();
+        FileDealingStat fileDealingStat = new FileDealingStat(target);
+        putFileDealingStat(uuid, fileDealingStat);
+        Entry fileDealingStatEntry = getFileDealingStatEntry(uuid);
+        return fileDealingStatEntry;
     }
 
     public class Entry {
