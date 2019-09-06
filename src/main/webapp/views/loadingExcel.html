@@ -171,7 +171,7 @@
                 if (!openWindow)
                     logBar.log("（" + perDouble + "%）check：" + JSON.stringify(result) + "\n");
                 // 完成
-                if (result.data.num <= result.data.now && !openWindow) {
+                if (result.data.finish && !openWindow) {
                     openWindow = true;
                     clearInterval(timer);
                     timeTracker.timerStop();
@@ -183,8 +183,10 @@
                         $("#downloadFile").attr("href", downloading.downFileUrl + "?uuid=" + uuid).html("_文件生成完毕，若未自动下载请点击此处_");
                         logBar.log("--------------------\n若被拦截请手动执行 " + downloading.downFileUrl + "?uuid=" + uuid + "\n");
                     }, 3000);
-                    logBar.log("--------------------\n尝试弹出下载页...\n");
-                    window.open(downloading.downFileUrl + "?uuid=" + uuid);
+                    setTimeout(function () {
+                        logBar.log("--------------------\n尝试弹出下载页...\n");
+                        window.open(downloading.downFileUrl + "?uuid=" + uuid);
+                    }, 2000);
                 }
             });
         }
