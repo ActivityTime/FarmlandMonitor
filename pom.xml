@@ -216,8 +216,8 @@
                     <!-- 热部署 -->
                     <username>neau</username>
                     <password>neau</password>
-                    <!-- url>http://202.118.163.18:8092/manager/text</url -->
-                    <url>http://landm.actim.top:8082/manager/text</url>
+                    <url>http://202.118.163.18:8092/manager/text</url>
+                    <!-- url>http://landm.actim.top:8082/manager/text</url-->
                 </configuration>
             </plugin>
             <!-- 发布时跳过单元测试 -->
