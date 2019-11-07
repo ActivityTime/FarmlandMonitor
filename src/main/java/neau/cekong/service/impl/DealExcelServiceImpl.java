@@ -47,28 +47,28 @@ public class DealExcelServiceImpl implements DealExcelService {
 //        TA(℃)	 RH(%)	 PPM(ppm)	 WD(Deg)	 PRESS(hPa)	 DEPTH(mm)	 PAR(umol/㎡·S)	 RA(W/㎡)	 UV3(W/㎡)	 NET_R(W/㎡)	 TS1(℃)	 TS2(℃)	 TS3(℃)	 TS4(℃)	 TS5(℃)	 MS1(%)	 MS2(%)	 MS3(%)	 MS4(%)	 MS5(%)	 WS(m/s)	 RAIN(mm)
 
         title.put("retime", "时间日期");
-        title.put("TA", "TA(℃)");
-        title.put("RH", "RH(%)");
+        title.put("TA", "空气温度(℃)");
+        title.put("RH", "空气湿度(%)");
         title.put("PPM", "PPM(ppm)");
-        title.put("WD", "WD(Deg)");
-        title.put("PRESS", "PRESS(hPa)");
-        title.put("DEPTH", "DEPTH(mm)");
-        title.put("PAR", "PAR(umol/㎡·S)");
-        title.put("RA", "RA(W/㎡)");
-        title.put("UV3", "UV3(W/㎡)");
-        title.put("NET_R", "NET_R(W/㎡)");
+        title.put("WD", "风向(Deg)");
+        title.put("PRESS", "大气压(hPa)");
+        title.put("DEPTH", "水井深度变化(mm)");
+        title.put("PAR", "光合有效辐射(umol/㎡·S)");
+        title.put("RA", "太阳总辐射(W/㎡)");
+        title.put("UV3", "紫外辐射(W/㎡)");
+        title.put("NET_R", "净辐射(W/㎡)");
         title.put("TS1", "TS1(℃)");
         title.put("TS2", "TS2(℃)");
         title.put("TS3", "TS3(℃)");
         title.put("TS4", "TS4(℃)");
         title.put("TS5", "TS5(℃)");
-        title.put("MS1", "MS1(%)");
+        title.put("MS1", "土壤含水量 MS1(%)");
         title.put("MS2", "MS2(%)");
         title.put("MS3", "MS3(%)");
         title.put("MS4", "MS4(%)");
         title.put("MS5", "MS5(%)");
-        title.put("WS", "WS(m/s)");
-        title.put("RAIN", "RAIN(mm)");
+        title.put("WS", "风速(m/s)");
+        title.put("RAIN", "降雨量(mm)");
     }
 
     /**
